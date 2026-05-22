@@ -14,10 +14,12 @@ Langflow bindet diesen Server als MCP-Client ein.
 from __future__ import annotations
 
 import importlib
+import os
 import traceback
 from typing import Any
 
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -114,6 +116,15 @@ class ToolCallRequest(BaseModel):
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok", "server": "WM-2026 MCP-Server", "tools": list(TOOLS.keys())}
+
+
+@app.get("/logo.svg")
+def get_logo() -> FileResponse:
+    """Gibt das offizielle SVG-Logo des WM-2026 MCP-Servers zurück."""
+    logo_path = os.path.join(os.path.dirname(__file__), "logo.svg")
+    if not os.path.exists(logo_path):
+        raise HTTPException(status_code=404, detail="Logo nicht gefunden")
+    return FileResponse(logo_path, media_type="image/svg+xml")
 
 
 @app.get("/tools")

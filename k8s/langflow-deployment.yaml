@@ -1,0 +1,72 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: langflow-pvc
+  namespace: soccer-agent
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: langflow
+  namespace: soccer-agent
+  labels:
+    app: langflow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: langflow
+  template:
+    metadata:
+      labels:
+        app: langflow
+    spec:
+      containers:
+        - name: langflow
+          image: langflowai/langflow:latest
+          ports:
+            - containerPort: 7860
+          env:
+            - name: LANGFLOW_HOST
+              value: "0.0.0.0"
+            - name: LANGFLOW_PORT
+              value: "7860"
+            - name: LANGFLOW_DATABASE_URL
+              value: "sqlite:////var/lib/langflow/langflow.db"
+            - name: OPENAI_API_BASE
+              value: "http://litellm:4000/v1"
+            - name: OPENAI_API_KEY
+              value: "dummy"
+          volumeMounts:
+            - name: langflow-storage
+              mountPath: /var/lib/langflow
+          resources:
+            limits:
+              cpu: "2"
+              memory: 4Gi
+            requests:
+              cpu: "1"
+              memory: 2Gi
+      volumes:
+        - name: langflow-storage
+          persistentVolumeClaim:
+            claimName: langflow-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: langflow
+  namespace: soccer-agent
+spec:
+  ports:
+    - port: 7860
+      targetPort: 7860
+      name: http
+  selector:
+    app: langflow

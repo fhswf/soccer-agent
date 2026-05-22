@@ -1,0 +1,147 @@
+{
+  "id": "wm-agent-2026-flow",
+  "name": "WM-Experten-Agent 2026 RAG Flow",
+  "description": "Ein RAG-gestützter Chatbot für den KI-Trainer-Workshop, der ChromaDB und LiteLLM nutzt.",
+  "data": {
+    "nodes": [
+      {
+        "id": "chat-input-node",
+        "type": "ChatInput",
+        "data": {
+          "node": {
+            "template": {
+              "input_value": {
+                "value": "Wer ist der ELO-Favorit der Gruppe E?"
+              }
+            }
+          }
+        },
+        "position": {
+          "x": 100,
+          "y": 250
+        }
+      },
+      {
+        "id": "chroma-db-retriever",
+        "type": "Chroma",
+        "data": {
+          "node": {
+            "template": {
+              "collection_name": {
+                "value": "wm2026"
+              },
+              "server_host": {
+                "value": "chromadb"
+              },
+              "server_port": {
+                "value": 8000
+              },
+              "search_query": {
+                "value": ""
+              },
+              "n_results": {
+                "value": 4
+              }
+            }
+          }
+        },
+        "position": {
+          "x": 350,
+          "y": 100
+        }
+      },
+      {
+        "id": "prompt-node",
+        "type": "Prompt",
+        "data": {
+          "node": {
+            "template": {
+              "template": {
+                "value": "Du bist der WM-Experten-Agent für die Fußball-Weltmeisterschaft 2026.\nVerwende den folgenden Kontext aus unserer Datenbank, um die Frage des Benutzers zu beantworten:\n\n{context}\n\nFrage: {question}\n\nAntworte auf Deutsch und sei präzise."
+              }
+            }
+          }
+        },
+        "position": {
+          "x": 650,
+          "y": 200
+        }
+      },
+      {
+        "id": "litellm-chat-model",
+        "type": "OpenAIModel",
+        "data": {
+          "node": {
+            "template": {
+              "model_name": {
+                "value": "gpt-4o"
+              },
+              "openai_api_base": {
+                "value": "http://litellm:4000/v1"
+              },
+              "openai_api_key": {
+                "value": "dummy"
+              },
+              "temperature": {
+                "value": 0.2
+              }
+            }
+          }
+        },
+        "position": {
+          "x": 900,
+          "y": 250
+        }
+      },
+      {
+        "id": "chat-output-node",
+        "type": "ChatOutput",
+        "data": {
+          "node": {
+            "template": {
+              "text": {
+                "value": ""
+              }
+            }
+          }
+        },
+        "position": {
+          "x": 1150,
+          "y": 250
+        }
+      }
+    ],
+    "edges": [
+      {
+        "source": "chat-input-node",
+        "target": "chroma-db-retriever",
+        "source_output": "message",
+        "target_input": "search_query"
+      },
+      {
+        "source": "chat-input-node",
+        "target": "prompt-node",
+        "source_output": "message",
+        "target_input": "question"
+      },
+      {
+        "source": "chroma-db-retriever",
+        "target": "prompt-node",
+        "source_output": "search_results",
+        "target_input": "context"
+      },
+      {
+        "source": "prompt-node",
+        "target": "litellm-chat-model",
+        "source_output": "prompt",
+        "target_input": "user_message"
+      },
+      {
+        "source": "litellm-chat-model",
+        "target": "chat-output-node",
+        "source_output": "text",
+        "target_input": "text"
+      }
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="bg-glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#030712" />
+    </radialGradient>
+
+    <!-- Emerald and Blue Neon Gradient for Lines -->
+    <linearGradient id="neon-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F260" />
+      <stop offset="50%" stop-color="#0575E6" />
+      <stop offset="100%" stop-color="#8e2de2" />
+    </linearGradient>
+
+    <!-- Gold/Yellow Gradient for Nodes -->
+    <linearGradient id="node-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE000" />
+      <stop offset="100%" stop-color="#799F0C" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="glow-soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="48" fill="url(#bg-glow)" stroke="#1f2937" stroke-width="2" />
+
+  <!-- Ambient Glow Behind Ball -->
+  <circle cx="256" cy="210" r="130" fill="#00F260" opacity="0.12" filter="url(#glow-soft)" />
+  <circle cx="256" cy="210" r="100" fill="#0575E6" opacity="0.12" filter="url(#glow-soft)" />
+
+  <!-- Decorative Background Grid Lines -->
+  <path d="M 64 256 L 448 256" stroke="#1f2937" stroke-width="1" stroke-dasharray="10 10" />
+  <path d="M 256 64 L 256 350" stroke="#1f2937" stroke-width="1" stroke-dasharray="10 10" />
+  <circle cx="256" cy="210" r="170" fill="none" stroke="#1f2937" stroke-width="1" stroke-dasharray="5 5" />
+
+  <!-- Outermost Glowing Boundary Circle -->
+  <circle cx="256" cy="210" r="145" fill="none" stroke="url(#neon-glow)" stroke-width="2" opacity="0.3" stroke-dasharray="6 12" />
+
+  <!-- Main Soccer Ball Outer Ring -->
+  <circle cx="256" cy="210" r="140" fill="none" stroke="url(#neon-glow)" stroke-width="3" filter="url(#glow)" opacity="0.8" />
+
+  <!-- Group of Net Lines (Edges) -->
+  <g stroke="url(#neon-glow)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" filter="url(#glow)">
+    <!-- Central Pentagon -->
+    <polygon points="256,150 300,185 283,240 229,240 212,185" fill="none" stroke-width="4" opacity="0.95" />
+
+    <!-- Radiating Lines (from Pentagon to Outer Endpoints) -->
+    <line x1="256" y1="150" x2="256" y2="90" />
+    <line x1="300" y1="185" x2="345" y2="155" />
+    <line x1="283" y1="240" x2="310" y2="290" />
+    <line x1="229" y1="240" x2="202" y2="290" />
+    <line x1="212" y1="185" x2="167" y2="155" />
+
+    <!-- Outer Hexagonal Panels (Connecting Outward Endpoints) -->
+    <polyline points="256,90 305,105 345,155" fill="none" />
+    <polyline points="345,155 350,220 310,290" fill="none" />
+    <polyline points="310,290 256,320 202,290" fill="none" />
+    <polyline points="202,290 162,220 167,155" fill="none" />
+    <polyline points="167,155 207,105 256,90" fill="none" />
+  </g>
+
+  <!-- Group of Interactive Glowing Nodes (Vertices) -->
+  <g fill="url(#node-glow)" filter="url(#glow)">
+    <!-- Central Pentagon Vertices -->
+    <circle cx="256" cy="150" r="7" />
+    <circle cx="300" cy="185" r="7" />
+    <circle cx="283" cy="240" r="7" />
+    <circle cx="229" cy="240" r="7" />
+    <circle cx="212" cy="185" r="7" />
+
+    <!-- Outer Endpoints -->
+    <circle cx="256" cy="90" r="8" fill="#00F260" />
+    <circle cx="345" cy="155" r="8" fill="#00F260" />
+    <circle cx="310" cy="290" r="8" fill="#00F260" />
+    <circle cx="202" cy="290" r="8" fill="#00F260" />
+    <circle cx="167" cy="155" r="8" fill="#00F260" />
+
+    <!-- Outer Intermediate Connectors -->
+    <circle cx="305" cy="105" r="6" />
+    <circle cx="350" cy="220" r="6" />
+    <circle cx="256" cy="320" r="6" />
+    <circle cx="162" cy="220" r="6" />
+    <circle cx="207" cy="105" r="6" />
+  </g>
+
+  <!-- Typography -->
+  <!-- Main Title -->
+  <text x="256" y="415" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" fill="#ffffff" letter-spacing="3" filter="url(#glow)">WM 2026</text>
+  
+  <!-- Subtitle -->
+  <text x="256" y="450" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="14" fill="#00F260" letter-spacing="6">MCP SERVER</text>
+</svg>
