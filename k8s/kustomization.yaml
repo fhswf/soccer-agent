@@ -4,8 +4,6 @@ kind: Kustomization
 namespace: soccer-agent
 
 resources:
-  - litellm-configmap.yaml
-  - litellm-deployment.yaml
   - chromadb-deployment.yaml
   - mcp-server-deployment.yaml
   - langflow-deployment.yaml

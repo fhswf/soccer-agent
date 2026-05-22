@@ -77,7 +77,7 @@
                 "value": "gpt-4o"
               },
               "openai_api_base": {
-                "value": "http://litellm:4000/v1"
+                "value": "https://litellm.fh-swf.cloud/v1"
               },
               "openai_api_key": {
                 "value": "dummy"

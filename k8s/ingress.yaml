@@ -4,13 +4,16 @@ metadata:
   name: wm2026-ingress
   namespace: soccer-agent
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    # Erhöhe Upload-Größenbegrenzung für Datei-Uploads in JupyterLab/Langflow
-    nginx.ingress.kubernetes.io/proxy-body-size: "100m"
+    traefik.frontend.passHostHeader: "true"
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls.certresolver: myresolver
 spec:
+  tls:
+    - hosts:
+        - wm2026.fh-swf.cloud
   rules:
-    - http:
+    - host: wm2026.fh-swf.cloud
+      http:
         paths:
           - path: /langflow
             pathType: Prefix
@@ -26,10 +29,3 @@ spec:
                 name: mcp-server
                 port:
                   number: 9000
-          - path: /llm
-            pathType: Prefix
-            backend:
-              service:
-                name: litellm
-                port:
-                  number: 4000

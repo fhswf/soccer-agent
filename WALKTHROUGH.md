@@ -34,11 +34,10 @@ We added visual programming files in [langflow-components/](file:///home/cgawron
 A complete declarative deployment pipeline has been created in [k8s/](file:///home/cgawron/git/soccer-agent/k8s/):
 
 - **[kustomization.yaml](file:///home/cgawron/git/soccer-agent/k8s/kustomization.yaml)**: Orchestrates resources in the `soccer-agent` namespace.
-- **[litellm-configmap.yaml](file:///home/cgawron/git/soccer-agent/k8s/litellm-configmap.yaml)** & **[litellm-deployment.yaml](file:///home/cgawron/git/soccer-agent/k8s/litellm-deployment.yaml)**: Deploys a LiteLLM proxy routing generic model requests to provider API keys.
 - **[chromadb-deployment.yaml](file:///home/cgawron/git/soccer-agent/k8s/chromadb-deployment.yaml)**: Runs ChromaDB in client-server mode with a Persistent Volume.
 - **[mcp-server-deployment.yaml](file:///home/cgawron/git/soccer-agent/k8s/mcp-server-deployment.yaml)**: Serves the FastAPI ELO, schedule, and tournament simulation tools (now configured to pull from `ghcr.io/fhswf/soccer-agent/mcp-server:latest`).
-- **[langflow-deployment.yaml](file:///home/cgawron/git/soccer-agent/k8s/langflow-deployment.yaml)**: Runs Langflow with SQLite database persistence.
-- **[ingress.yaml](file:///home/cgawron/git/soccer-agent/k8s/ingress.yaml)**: Maps ingress rules under subpaths (with `/jupyter` removed as JupyterLab is hosted separately).
+- **[langflow-deployment.yaml](file:///home/cgawron/git/soccer-agent/k8s/langflow-deployment.yaml)**: Runs Langflow with SQLite database persistence, configured to connect to the external LiteLLM service (`https://litellm.fh-swf.cloud/v1`).
+- **[ingress.yaml](file:///home/cgawron/git/soccer-agent/k8s/ingress.yaml)**: Configures Traefik Ingress routing for the `wm2026.fh-swf.cloud` host using the `websecure` entrypoint and `myresolver` TLS certresolver (routing `/llm` has been removed as we route to the external `litellm.fh-swf.cloud` directly, and `/jupyter` has been removed as JupyterLab is hosted separately).
 - **[argocd-app.yaml](file:///home/cgawron/git/soccer-agent/argocd-app.yaml)**: An ArgoCD Application manifest for automated GitOps deployment targeting the `fhswf` GitHub organization.
 
 ---
