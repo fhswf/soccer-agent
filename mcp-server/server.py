@@ -69,9 +69,10 @@ TOOLS: dict[str, dict] = {
             "mit der ein Team jede Runde erreicht (Gruppenphase → Weltmeister)."
         ),
         "parameters": {
-            "team":       {"type": "string",  "description": "Teamname für detaillierten Bericht. Ohne Angabe: Top-10 Weltmeister-Odds."},
+            "team":       {"type": "string",  "description": "Teamname für detaillierten Bericht. Ohne Angabe: Top-N Weltmeister-Odds."},
             "n_sims":     {"type": "integer", "description": "Anzahl Simulationen (Standard: 10000). Mehr = genauer, aber langsamer."},
             "home_boost": {"type": "integer", "description": "ELO-Bonus für Gastgeber USA/Kanada/Mexiko (Standard: 50)."},
+            "top_n":      {"type": "integer", "description": "Anzahl der anzuzeigenden Favoriten (Standard: 10)."},
         },
         "module": "tools.simulate_tournament",
     },

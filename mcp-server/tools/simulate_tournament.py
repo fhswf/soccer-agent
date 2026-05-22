@@ -29,25 +29,18 @@ def _build_elo_map(home_boost: int = 50) -> None:
     """Erstellt Fixture-Name → ELO-Mapping."""
     global _FIXTURE_ELO
     fixtures = get_fixtures()
-    elo_data = get_elo_data()
-    elo_by_name_lower = {t["name"].lower(): (t["elo"] or 1500, t["code"]) for t in elo_data}
-
-    import difflib
 
     for group_info in fixtures["groups"].values():
         for fixture_name in group_info["teams"]:
             if fixture_name in _FIXTURE_ELO:
                 continue
-            key = fixture_name.lower()
-            if key in elo_by_name_lower:
-                elo_val, code = elo_by_name_lower[key]
+            resolved = resolve_team(fixture_name)
+            if resolved:
+                elo_val = resolved.get("elo") or 1500
+                code = resolved.get("code", "")
             else:
-                # Fuzzy-Match
-                matches = difflib.get_close_matches(key, list(elo_by_name_lower.keys()), n=1, cutoff=0.5)
-                if matches:
-                    elo_val, code = elo_by_name_lower[matches[0]]
-                else:
-                    elo_val, code = 1400, ""
+                elo_val = 1400
+                code = ""
             if code in _HOME_TEAMS:
                 elo_val += home_boost
             _FIXTURE_ELO[fixture_name] = elo_val
@@ -195,6 +188,7 @@ def run(
     n_sims: int = 10_000,
     target_round: str = "Weltmeister",
     home_boost: int = 50,
+    top_n: int = 10,
 ) -> dict:
     """
     Simuliert die WM 2026 n_sims-mal und gibt Wahrscheinlichkeiten zurück.
@@ -282,22 +276,22 @@ def run(
         }
 
     else:
-        # Alle Teams: Top-10 nach Weltmeister-Wahrscheinlichkeit
+        # Alle Teams: Top-N nach Weltmeister-Wahrscheinlichkeit
         world_probs = sorted(
             [(t, probs[t]["Weltmeister"]) for t in all_teams],
             key=lambda x: x[1],
             reverse=True,
         )
-        top10 = world_probs[:10]
+        top_teams = world_probs[:top_n]
         bar_lines = [
             f"{i+1:2d}. {t:<22} {_make_bar(p, 25)} {p*100:5.1f}%"
-            for i, (t, p) in enumerate(top10)
+            for i, (t, p) in enumerate(top_teams)
         ]
         return {
             "n_simulations": n_sims,
             "world_cup_winner_odds": [
                 {"rank": i + 1, "team": t, "probability": round(p, 4), "percent": f"{p*100:.1f}%"}
-                for i, (t, p) in enumerate(top10)
+                for i, (t, p) in enumerate(top_teams)
             ],
             "bar_chart": "\n".join(bar_lines),
             "note": f"Basierend auf {n_sims:,} Monte-Carlo-Simulationen mit ELO-Ratings von eloratings.net",

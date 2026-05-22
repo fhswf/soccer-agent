@@ -9,6 +9,7 @@ Befehle:
   uv run wm ingest      Chunks in Vektordatenbanken einspeichern
   uv run wm pipeline    fetch + clean + ingest (alles auf einmal)
   uv run wm mcp         MCP-Server starten
+  uv run wm simulate    Monte-Carlo-Simulation der WM 2026 starten
   uv run wm info        Zeigt Info zu den geladenen Daten
 """
 
@@ -115,6 +116,34 @@ def mcp(
         cwd=ROOT / "mcp-server",
         check=True,
     )
+
+
+@app.command()
+def simulate(
+    team: str = typer.Option(None, "--team", "-t", help="Teamname für Detailbericht (z. B. Deutschland)"),
+    n_sims: int = typer.Option(1000, "--sims", "-n", help="Anzahl der Simulationen"),
+    home_boost: int = typer.Option(50, "--boost", "-b", help="ELO-Heimvorteil-Boost für Gastgeber"),
+    top_n: int = typer.Option(10, "--top", "-k", help="Anzahl der anzuzeigenden Favoriten"),
+) -> None:
+    """🎲 Monte-Carlo-Simulation der WM 2026 starten."""
+    console.rule("[bold blue]Monte-Carlo-Turniersimulation")
+    
+    import sys
+    sys.path.append(str(ROOT / "mcp-server"))
+    from tools import simulate_tournament
+    
+    with console.status(f"Simuliere Turnier {n_sims:,} Mal..."):
+        res = simulate_tournament.run(team=team, n_sims=n_sims, home_boost=home_boost, top_n=top_n)
+        
+    if team:
+        rprint(f"\n[bold green]Prognose für {res['team']} (ELO {res['elo']}):[/bold green]")
+        rprint(res['summary'])
+        rprint("\n[bold cyan]Wahrscheinlichkeiten pro Runde:[/bold cyan]")
+        rprint(res['bar_chart'])
+    else:
+        rprint(f"\n[bold green]Top-{top_n} Weltmeister-Chancen:[/bold green]")
+        rprint(res['bar_chart'])
+        rprint(f"\n[dim]{res['note']}[/dim]")
 
 
 # ---------------------------------------------------------------------------

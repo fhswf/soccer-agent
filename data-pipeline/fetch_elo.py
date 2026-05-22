@@ -63,7 +63,7 @@ CODE_TO_NAME: dict[str, str] = {
     "AU": "Australien",
     "RU": "Russland",
     "RS": "Serbien",
-    "SQ": "Albanien",
+    "SQ": "Schottland",
     "UA": "Ukraine",
     "IR": "Iran",
     "KR": "Südkorea",
