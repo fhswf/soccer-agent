@@ -1,0 +1,932 @@
+[
+  {
+    "text": "Die aktuellen Top-20-Teams der Welt nach ELO-Rating (Stand: Mai 2026):\n\n  # 1. Spanien (Code: ES) – ELO: 2165 (Veränderung letztes Jahr: +146)\n  # 2. Argentinien (Code: AR) – ELO: 2113 (Veränderung letztes Jahr: -27)\n  # 3. Frankreich (Code: FR) – ELO: 2081 (Veränderung letztes Jahr: -3)\n  # 4. England (Code: EN) – ELO: 2020 (Veränderung letztes Jahr: +22)\n  # 5. Brasilien (Code: BR) – ELO: 1984 (Veränderung letztes Jahr: -43)\n  # 5. Portugal (Code: PT) – ELO: 1984 (Veränderung letztes Jahr: -28)\n  # 7. Kolumbien (Code: CO) – ELO: 1975 (Veränderung letztes Jahr: -23)\n  # 8. Niederlande (Code: NL) – ELO: 1961 (Veränderung letztes Jahr: -7)\n  # 9. Ecuador (Code: EC) – ELO: 1933 (Veränderung letztes Jahr: +60)\n  #10. Kroatien (Code: HR) – ELO: 1930 (Veränderung letztes Jahr: -22)\n  #11. Deutschland (Code: DE) – ELO: 1923 (Veränderung letztes Jahr: +3)\n  #12. Norwegen (Code: NO) – ELO: 1912 (Veränderung letztes Jahr: +175)\n  #13. Japan (Code: JP) – ELO: 1904 (Veränderung letztes Jahr: +52)\n  #14. Türkei (Code: TR) – ELO: 1902 (Veränderung letztes Jahr: +153)\n  #15. Uruguay (Code: UY) – ELO: 1892 (Veränderung letztes Jahr: -96)\n  #16. Schweiz (Code: CH) – ELO: 1889 (Veränderung letztes Jahr: +86)\n  #17. Senegal (Code: SN) – ELO: 1878 (Veränderung letztes Jahr: +102)\n  #18. Dänemark (Code: DK) – ELO: 1869 (Veränderung letztes Jahr: +47)\n  #19. Belgien (Code: BE) – ELO: 1867 (Veränderung letztes Jahr: -119)\n  #20. Mexiko (Code: MX) – ELO: 1858 (Veränderung letztes Jahr: +58)",
+    "source": "eloratings.net – Weltrangliste Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0000"
+  },
+  {
+    "text": "Spanien (Kürzel: ES) bei der WM 2026:\n\n  Aktueller ELO-Wert: 2165 (Weltrang: #1)\n  ELO vor einem Jahr: 2189 (Entwicklung: -24 Punkte)\n  ELO vor drei Jahren: 1946 (Entwicklung: +219 Punkte)\n  Historische Bilanz: 780 Spiele – 340S / 302U / 138N\n  Tore: 461 geschossen, 138 kassiert (Differenz: +323)",
+    "source": "eloratings.net – Spanien Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Spanien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0001"
+  },
+  {
+    "text": "Argentinien (Kürzel: AR) bei der WM 2026:\n\n  Aktueller ELO-Wert: 2113 (Weltrang: #2)\n  ELO vor einem Jahr: 2172 (Entwicklung: -59 Punkte)\n  ELO vor drei Jahren: 1987 (Entwicklung: +126 Punkte)\n  Historische Bilanz: 1109 Spiele – 381S / 419U / 309N\n  Tore: 610 geschossen, 228 kassiert (Differenz: +382)",
+    "source": "eloratings.net – Argentinien Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Argentinien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0002"
+  },
+  {
+    "text": "Frankreich (Kürzel: FR) bei der WM 2026:\n\n  Aktueller ELO-Wert: 2081 (Weltrang: #3)\n  ELO vor einem Jahr: 2135 (Entwicklung: -54 Punkte)\n  ELO vor drei Jahren: 1795 (Entwicklung: +286 Punkte)\n  Historische Bilanz: 938 Spiele – 473S / 341U / 124N\n  Tore: 474 geschossen, 269 kassiert (Differenz: +205)",
+    "source": "eloratings.net – Frankreich Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Frankreich",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0003"
+  },
+  {
+    "text": "England (Kürzel: EN) bei der WM 2026:\n\n  Aktueller ELO-Wert: 2020 (Weltrang: #4)\n  ELO vor einem Jahr: 2213 (Entwicklung: -193 Punkte)\n  ELO vor drei Jahren: 1983 (Entwicklung: +37 Punkte)\n  Historische Bilanz: 1160 Spiele – 509S / 524U / 127N\n  Tore: 683 geschossen, 215 kassiert (Differenz: +468)",
+    "source": "eloratings.net – England Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "England",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0004"
+  },
+  {
+    "text": "Brasilien (Kürzel: BR) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1984 (Weltrang: #5)\n  ELO vor einem Jahr: 2195 (Entwicklung: -211 Punkte)\n  ELO vor drei Jahren: 1998 (Entwicklung: -14 Punkte)\n  Historische Bilanz: 1065 Spiele – 372S / 346U / 347N\n  Tore: 670 geschossen, 172 kassiert (Differenz: +498)",
+    "source": "eloratings.net – Brasilien Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Brasilien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0005"
+  },
+  {
+    "text": "Portugal (Kürzel: PT) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1984 (Weltrang: #5)\n  ELO vor einem Jahr: 2060 (Entwicklung: -76 Punkte)\n  ELO vor drei Jahren: 1797 (Entwicklung: +187 Punkte)\n  Historische Bilanz: 694 Spiele – 320S / 262U / 112N\n  Tore: 346 geschossen, 189 kassiert (Differenz: +157)",
+    "source": "eloratings.net – Portugal Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Portugal",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0006"
+  },
+  {
+    "text": "Kolumbien (Kürzel: CO) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1975 (Weltrang: #7)\n  ELO vor einem Jahr: 2069 (Entwicklung: -94 Punkte)\n  ELO vor drei Jahren: 1621 (Entwicklung: +354 Punkte)\n  Historische Bilanz: 648 Spiele – 184S / 229U / 235N\n  Tore: 265 geschossen, 205 kassiert (Differenz: +60)",
+    "source": "eloratings.net – Kolumbien Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Kolumbien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0007"
+  },
+  {
+    "text": "Niederlande (Kürzel: NL) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1961 (Weltrang: #8)\n  ELO vor einem Jahr: 2153 (Entwicklung: -192 Punkte)\n  ELO vor drei Jahren: 1848 (Entwicklung: +113 Punkte)\n  Historische Bilanz: 901 Spiele – 429S / 358U / 114N\n  Tore: 465 geschossen, 239 kassiert (Differenz: +226)",
+    "source": "eloratings.net – Niederlande Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Niederlande",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0008"
+  },
+  {
+    "text": "Ecuador (Kürzel: EC) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1933 (Weltrang: #9)\n  ELO vor einem Jahr: 1934 (Entwicklung: -1 Punkte)\n  ELO vor drei Jahren: 1525 (Entwicklung: +408 Punkte)\n  Historische Bilanz: 598 Spiele – 183S / 211U / 204N\n  Tore: 183 geschossen, 254 kassiert (Differenz: -71)",
+    "source": "eloratings.net – Ecuador Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Ecuador",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0009"
+  },
+  {
+    "text": "Kroatien (Kürzel: HR) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1930 (Weltrang: #10)\n  ELO vor einem Jahr: 2015 (Entwicklung: -85 Punkte)\n  ELO vor drei Jahren: 1881 (Entwicklung: +49 Punkte)\n  Historische Bilanz: 398 Spiele – 156S / 167U / 75N\n  Tore: 209 geschossen, 83 kassiert (Differenz: +126)",
+    "source": "eloratings.net – Kroatien Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Kroatien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0010"
+  },
+  {
+    "text": "Deutschland (Kürzel: DE) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1923 (Weltrang: #11)\n  ELO vor einem Jahr: 2223 (Entwicklung: -300 Punkte)\n  ELO vor drei Jahren: 1911 (Entwicklung: +12 Punkte)\n  Historische Bilanz: 1045 Spiele – 469S / 415U / 161N\n  Tore: 604 geschossen, 224 kassiert (Differenz: +380)",
+    "source": "eloratings.net – Deutschland Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Deutschland",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0011"
+  },
+  {
+    "text": "Norwegen (Kürzel: NO) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1912 (Weltrang: #12)\n  ELO vor einem Jahr: 1944 (Entwicklung: -32 Punkte)\n  ELO vor drei Jahren: 1623 (Entwicklung: +289 Punkte)\n  Historische Bilanz: 886 Spiele – 425S / 409U / 52N\n  Tore: 334 geschossen, 355 kassiert (Differenz: -21)",
+    "source": "eloratings.net – Norwegen Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Norwegen",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0012"
+  },
+  {
+    "text": "Japan (Kürzel: JP) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1904 (Weltrang: #13)\n  ELO vor einem Jahr: 1913 (Entwicklung: -9 Punkte)\n  ELO vor drei Jahren: 1467 (Entwicklung: +437 Punkte)\n  Historische Bilanz: 835 Spiele – 331S / 207U / 297N\n  Tore: 408 geschossen, 257 kassiert (Differenz: +151)",
+    "source": "eloratings.net – Japan Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Japan",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0013"
+  },
+  {
+    "text": "Türkei (Kürzel: TR) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1902 (Weltrang: #14)\n  ELO vor einem Jahr: 1902 (Entwicklung: +0 Punkte)\n  ELO vor drei Jahren: 1611 (Entwicklung: +291 Punkte)\n  Historische Bilanz: 669 Spiele – 290S / 300U / 79N\n  Tore: 263 geschossen, 250 kassiert (Differenz: +13)",
+    "source": "eloratings.net – Türkei Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Türkei",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0014"
+  },
+  {
+    "text": "Uruguay (Kürzel: UY) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1892 (Weltrang: #15)\n  ELO vor einem Jahr: 2104 (Entwicklung: -212 Punkte)\n  ELO vor drei Jahren: 1876 (Entwicklung: +16 Punkte)\n  Historische Bilanz: 1019 Spiele – 336S / 432U / 251N\n  Tore: 446 geschossen, 321 kassiert (Differenz: +125)",
+    "source": "eloratings.net – Uruguay Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Uruguay",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0015"
+  },
+  {
+    "text": "Schweiz (Kürzel: CH) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1889 (Weltrang: #16)\n  ELO vor einem Jahr: 1933 (Entwicklung: -44 Punkte)\n  ELO vor drei Jahren: 1690 (Entwicklung: +199 Punkte)\n  Historische Bilanz: 895 Spiele – 425S / 392U / 78N\n  Tore: 319 geschossen, 373 kassiert (Differenz: -54)",
+    "source": "eloratings.net – Schweiz Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Schweiz",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0016"
+  },
+  {
+    "text": "Senegal (Kürzel: SN) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1878 (Weltrang: #17)\n  ELO vor einem Jahr: 1878 (Entwicklung: +0 Punkte)\n  ELO vor drei Jahren: 1590 (Entwicklung: +288 Punkte)\n  Historische Bilanz: 704 Spiele – 221S / 259U / 224N\n  Tore: 319 geschossen, 192 kassiert (Differenz: +127)",
+    "source": "eloratings.net – Senegal Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Senegal",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0017"
+  },
+  {
+    "text": "Dänemark (Kürzel: DK) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1869 (Weltrang: #18)\n  ELO vor einem Jahr: 2074 (Entwicklung: -205 Punkte)\n  ELO vor drei Jahren: 1799 (Entwicklung: +70 Punkte)\n  Historische Bilanz: 903 Spiele – 413S / 396U / 94N\n  Tore: 419 geschossen, 298 kassiert (Differenz: +121)",
+    "source": "eloratings.net – Dänemark Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Dänemark",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0018"
+  },
+  {
+    "text": "Belgien (Kürzel: BE) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1867 (Weltrang: #19)\n  ELO vor einem Jahr: 2157 (Entwicklung: -290 Punkte)\n  ELO vor drei Jahren: 1755 (Entwicklung: +112 Punkte)\n  Historische Bilanz: 876 Spiele – 415S / 375U / 86N\n  Tore: 390 geschossen, 302 kassiert (Differenz: +88)",
+    "source": "eloratings.net – Belgien Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Belgien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0019"
+  },
+  {
+    "text": "Mexiko (Kürzel: MX) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1858 (Weltrang: #20)\n  ELO vor einem Jahr: 1985 (Entwicklung: -127 Punkte)\n  ELO vor drei Jahren: 1782 (Entwicklung: +76 Punkte)\n  Historische Bilanz: 1027 Spiele – 296S / 273U / 458N\n  Tore: 532 geschossen, 258 kassiert (Differenz: +274)",
+    "source": "eloratings.net – Mexiko Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Mexiko",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0020"
+  },
+  {
+    "text": "Italien (Kürzel: IT) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1856 (Weltrang: #21)\n  ELO vor einem Jahr: 2134 (Entwicklung: -278 Punkte)\n  ELO vor drei Jahren: 1915 (Entwicklung: -59 Punkte)\n  Historische Bilanz: 901 Spiele – 407S / 323U / 171N\n  Tore: 479 geschossen, 177 kassiert (Differenz: +302)",
+    "source": "eloratings.net – Italien Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Italien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0021"
+  },
+  {
+    "text": "Paraguay (Kürzel: PY) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1833 (Weltrang: #22)\n  ELO vor einem Jahr: 1956 (Entwicklung: -123 Punkte)\n  ELO vor drei Jahren: 1755 (Entwicklung: +78 Punkte)\n  Historische Bilanz: 788 Spiele – 214S / 365U / 209N\n  Tore: 276 geschossen, 303 kassiert (Differenz: -27)",
+    "source": "eloratings.net – Paraguay Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Paraguay",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0022"
+  },
+  {
+    "text": "Österreich (Kürzel: AT) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1827 (Weltrang: #23)\n  ELO vor einem Jahr: 2070 (Entwicklung: -243 Punkte)\n  ELO vor drei Jahren: 1810 (Entwicklung: +17 Punkte)\n  Historische Bilanz: 865 Spiele – 431S / 383U / 51N\n  Tore: 370 geschossen, 310 kassiert (Differenz: +60)",
+    "source": "eloratings.net – Österreich Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Österreich",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0023"
+  },
+  {
+    "text": "Marokko (Kürzel: MA) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1821 (Weltrang: #24)\n  ELO vor einem Jahr: 1923 (Entwicklung: -102 Punkte)\n  ELO vor drei Jahren: 1657 (Entwicklung: +164 Punkte)\n  Historische Bilanz: 727 Spiele – 317S / 219U / 191N\n  Tore: 363 geschossen, 165 kassiert (Differenz: +198)",
+    "source": "eloratings.net – Marokko Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Marokko",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0024"
+  },
+  {
+    "text": "Kanada (Kürzel: CA) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1784 (Weltrang: #25)\n  ELO vor einem Jahr: 1841 (Entwicklung: -57 Punkte)\n  ELO vor drei Jahren: 1599 (Entwicklung: +185 Punkte)\n  Historische Bilanz: 488 Spiele – 152S / 200U / 136N\n  Tore: 189 geschossen, 185 kassiert (Differenz: +4)",
+    "source": "eloratings.net – Kanada Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Kanada",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0025"
+  },
+  {
+    "text": "Australien (Kürzel: AU) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1783 (Weltrang: #26)\n  ELO vor einem Jahr: 1876 (Entwicklung: -93 Punkte)\n  ELO vor drei Jahren: 1672 (Entwicklung: +111 Punkte)\n  Historische Bilanz: 635 Spiele – 271S / 223U / 141N\n  Tore: 326 geschossen, 179 kassiert (Differenz: +147)",
+    "source": "eloratings.net – Australien Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Australien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0026"
+  },
+  {
+    "text": "Russland (Kürzel: RU) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1776 (Weltrang: #27)\n  ELO vor einem Jahr: 2083 (Entwicklung: -307 Punkte)\n  ELO vor drei Jahren: 1742 (Entwicklung: +34 Punkte)\n  Historische Bilanz: 812 Spiele – 311S / 382U / 119N\n  Tore: 430 geschossen, 173 kassiert (Differenz: +257)",
+    "source": "eloratings.net – Russland Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Russland",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0027"
+  },
+  {
+    "text": "Serbien (Kürzel: RS) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1769 (Weltrang: #28)\n  ELO vor einem Jahr: 2017 (Entwicklung: -248 Punkte)\n  ELO vor drei Jahren: 1787 (Entwicklung: -18 Punkte)\n  Historische Bilanz: 860 Spiele – 302S / 423U / 135N\n  Tore: 403 geschossen, 265 kassiert (Differenz: +138)",
+    "source": "eloratings.net – Serbien Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Serbien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0028"
+  },
+  {
+    "text": "Albanien (Kürzel: SQ) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1767 (Weltrang: #29)\n  ELO vor einem Jahr: 2104 (Entwicklung: -337 Punkte)\n  ELO vor drei Jahren: 1879 (Entwicklung: -112 Punkte)\n  Historische Bilanz: 867 Spiele – 402S / 413U / 52N\n  Tore: 411 geschossen, 268 kassiert (Differenz: +143)",
+    "source": "eloratings.net – Albanien Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Albanien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0029"
+  },
+  {
+    "text": "Ukraine (Kürzel: UA) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1767 (Weltrang: #29)\n  ELO vor einem Jahr: 1872 (Entwicklung: -105 Punkte)\n  ELO vor drei Jahren: 1745 (Entwicklung: +22 Punkte)\n  Historische Bilanz: 338 Spiele – 134S / 144U / 60N\n  Tore: 153 geschossen, 90 kassiert (Differenz: +63)",
+    "source": "eloratings.net – Ukraine Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Ukraine",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0030"
+  },
+  {
+    "text": "Iran (Kürzel: IR) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1760 (Weltrang: #31)\n  ELO vor einem Jahr: 1853 (Entwicklung: -93 Punkte)\n  ELO vor drei Jahren: 1658 (Entwicklung: +102 Punkte)\n  Historische Bilanz: 668 Spiele – 223S / 195U / 250N\n  Tore: 382 geschossen, 132 kassiert (Differenz: +250)",
+    "source": "eloratings.net – Iran Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Iran",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0031"
+  },
+  {
+    "text": "Südkorea (Kürzel: KR) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1752 (Weltrang: #32)\n  ELO vor einem Jahr: 1845 (Entwicklung: -93 Punkte)\n  ELO vor drei Jahren: 1687 (Entwicklung: +65 Punkte)\n  Historische Bilanz: 1050 Spiele – 353S / 255U / 442N\n  Tore: 571 geschossen, 221 kassiert (Differenz: +350)",
+    "source": "eloratings.net – Südkorea Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Südkorea",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0032"
+  },
+  {
+    "text": "Nigeria (Kürzel: NG) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1752 (Weltrang: #32)\n  ELO vor einem Jahr: 1826 (Entwicklung: -74 Punkte)\n  ELO vor drei Jahren: 1668 (Entwicklung: +84 Punkte)\n  Historische Bilanz: 713 Spiele – 241S / 262U / 210N\n  Tore: 330 geschossen, 179 kassiert (Differenz: +151)",
+    "source": "eloratings.net – Nigeria Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Nigeria",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0033"
+  },
+  {
+    "text": "Griechenland (Kürzel: GR) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1752 (Weltrang: #32)\n  ELO vor einem Jahr: 1931 (Entwicklung: -179 Punkte)\n  ELO vor drei Jahren: 1559 (Entwicklung: +193 Punkte)\n  Historische Bilanz: 656 Spiele – 298S / 295U / 63N\n  Tore: 251 geschossen, 249 kassiert (Differenz: +2)",
+    "source": "eloratings.net – Griechenland Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Griechenland",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0034"
+  },
+  {
+    "text": "Algerien (Kürzel: DZ) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1743 (Weltrang: #35)\n  ELO vor einem Jahr: 1807 (Entwicklung: -64 Punkte)\n  ELO vor drei Jahren: 1621 (Entwicklung: +122 Punkte)\n  Historische Bilanz: 688 Spiele – 261S / 233U / 194N\n  Tore: 309 geschossen, 196 kassiert (Differenz: +113)",
+    "source": "eloratings.net – Algerien Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Algerien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0035"
+  },
+  {
+    "text": "Panama (Kürzel: PA) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1737 (Weltrang: #36)\n  ELO vor einem Jahr: 1773 (Entwicklung: -36 Punkte)\n  ELO vor drei Jahren: 1362 (Entwicklung: +375 Punkte)\n  Historische Bilanz: 591 Spiele – 200S / 227U / 164N\n  Tore: 196 geschossen, 251 kassiert (Differenz: -55)",
+    "source": "eloratings.net – Panama Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Panama",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0036"
+  },
+  {
+    "text": "Polen (Kürzel: PL) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1729 (Weltrang: #37)\n  ELO vor einem Jahr: 2084 (Entwicklung: -355 Punkte)\n  ELO vor drei Jahren: 1712 (Entwicklung: +17 Punkte)\n  Historische Bilanz: 919 Spiele – 395S / 410U / 114N\n  Tore: 400 geschossen, 295 kassiert (Differenz: +105)",
+    "source": "eloratings.net – Polen Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Polen",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0037"
+  },
+  {
+    "text": "Usbekistan (Kürzel: UZ) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1727 (Weltrang: #38)\n  ELO vor einem Jahr: 1766 (Entwicklung: -39 Punkte)\n  ELO vor drei Jahren: 1596 (Entwicklung: +131 Punkte)\n  Historische Bilanz: 365 Spiele – 130S / 128U / 107N\n  Tore: 180 geschossen, 110 kassiert (Differenz: +70)",
+    "source": "eloratings.net – Usbekistan Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Usbekistan",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0038"
+  },
+  {
+    "text": "Venezuela (Kürzel: VE) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1727 (Weltrang: #38)\n  ELO vor einem Jahr: 1830 (Entwicklung: -103 Punkte)\n  ELO vor drei Jahren: 1432 (Entwicklung: +295 Punkte)\n  Historische Bilanz: 481 Spiele – 179S / 179U / 123N\n  Tore: 129 geschossen, 245 kassiert (Differenz: -116)",
+    "source": "eloratings.net – Venezuela Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Venezuela",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0039"
+  },
+  {
+    "text": "Tschechien (Kürzel: CZ) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1726 (Weltrang: #40)\n  ELO vor einem Jahr: 2032 (Entwicklung: -306 Punkte)\n  ELO vor drei Jahren: 1855 (Entwicklung: -129 Punkte)\n  Historische Bilanz: 882 Spiele – 360S / 416U / 106N\n  Tore: 424 geschossen, 261 kassiert (Differenz: +163)",
+    "source": "eloratings.net – Tschechien Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Tschechien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0040"
+  },
+  {
+    "text": "USA (Kürzel: US) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1721 (Weltrang: #41)\n  ELO vor einem Jahr: 1890 (Entwicklung: -169 Punkte)\n  ELO vor drei Jahren: 1642 (Entwicklung: +79 Punkte)\n  Historische Bilanz: 825 Spiele – 487S / 253U / 85N\n  Tore: 366 geschossen, 286 kassiert (Differenz: +80)",
+    "source": "eloratings.net – USA Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "USA",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0041"
+  },
+  {
+    "text": "KO (Kürzel: KO) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1721 (Weltrang: #41)\n  ELO vor einem Jahr: 1738 (Entwicklung: -17 Punkte)\n  ELO vor drei Jahren: 1420 (Entwicklung: +301 Punkte)\n  Historische Bilanz: 107 Spiele – 48S / 39U / 20N\n  Tore: 42 geschossen, 42 kassiert (Differenz: +0)",
+    "source": "eloratings.net – KO Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "KO",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0042"
+  },
+  {
+    "text": "Schweden (Kürzel: SE) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1719 (Weltrang: #43)\n  ELO vor einem Jahr: 2013 (Entwicklung: -294 Punkte)\n  ELO vor drei Jahren: 1795 (Entwicklung: -76 Punkte)\n  Historische Bilanz: 1118 Spiele – 489S / 499U / 130N\n  Tore: 549 geschossen, 335 kassiert (Differenz: +214)",
+    "source": "eloratings.net – Schweden Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Schweden",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0043"
+  },
+  {
+    "text": "Chile (Kürzel: CL) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1710 (Weltrang: #44)\n  ELO vor einem Jahr: 2040 (Entwicklung: -330 Punkte)\n  ELO vor drei Jahren: 1678 (Entwicklung: +32 Punkte)\n  Historische Bilanz: 852 Spiele – 328S / 307U / 217N\n  Tore: 318 geschossen, 346 kassiert (Differenz: -28)",
+    "source": "eloratings.net – Chile Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Chile",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0044"
+  },
+  {
+    "text": "Ungarn (Kürzel: HU) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1703 (Weltrang: #45)\n  ELO vor einem Jahr: 2234 (Entwicklung: -531 Punkte)\n  ELO vor drei Jahren: 1835 (Entwicklung: -132 Punkte)\n  Historische Bilanz: 1033 Spiele – 467S / 492U / 74N\n  Tore: 487 geschossen, 324 kassiert (Differenz: +163)",
+    "source": "eloratings.net – Ungarn Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Ungarn",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0045"
+  },
+  {
+    "text": "Wales (Kürzel: WA) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1698 (Weltrang: #46)\n  ELO vor einem Jahr: 1910 (Entwicklung: -212 Punkte)\n  ELO vor drei Jahren: 1671 (Entwicklung: +27 Punkte)\n  Historische Bilanz: 733 Spiele – 345S / 356U / 32N\n  Tore: 236 geschossen, 331 kassiert (Differenz: -95)",
+    "source": "eloratings.net – Wales Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Wales",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0046"
+  },
+  {
+    "text": "Peru (Kürzel: PE) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1695 (Weltrang: #47)\n  ELO vor einem Jahr: 1916 (Entwicklung: -221 Punkte)\n  ELO vor drei Jahren: 1679 (Entwicklung: +16 Punkte)\n  Historische Bilanz: 708 Spiele – 266S / 253U / 189N\n  Tore: 228 geschossen, 304 kassiert (Differenz: -76)",
+    "source": "eloratings.net – Peru Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Peru",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0047"
+  },
+  {
+    "text": "Slowenien (Kürzel: SI) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1694 (Weltrang: #48)\n  ELO vor einem Jahr: 1777 (Entwicklung: -83 Punkte)\n  ELO vor drei Jahren: 1625 (Entwicklung: +69 Punkte)\n  Historische Bilanz: 319 Spiele – 144S / 145U / 30N\n  Tore: 116 geschossen, 117 kassiert (Differenz: -1)",
+    "source": "eloratings.net – Slowenien Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Slowenien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0048"
+  },
+  {
+    "text": "Irland (Kürzel: IE) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1692 (Weltrang: #49)\n  ELO vor einem Jahr: 1918 (Entwicklung: -226 Punkte)\n  ELO vor drei Jahren: 1626 (Entwicklung: +66 Punkte)\n  Historische Bilanz: 741 Spiele – 377S / 304U / 60N\n  Tore: 261 geschossen, 287 kassiert (Differenz: -26)",
+    "source": "eloratings.net – Irland Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Irland",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0049"
+  },
+  {
+    "text": "Jordanien (Kürzel: JO) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1690 (Weltrang: #50)\n  ELO vor einem Jahr: 1701 (Entwicklung: -11 Punkte)\n  ELO vor drei Jahren: 1322 (Entwicklung: +368 Punkte)\n  Historische Bilanz: 582 Spiele – 201S / 191U / 190N\n  Tore: 206 geschossen, 218 kassiert (Differenz: -12)",
+    "source": "eloratings.net – Jordanien Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Jordanien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0050"
+  },
+  {
+    "text": "Ägypten (Kürzel: EG) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1689 (Weltrang: #51)\n  ELO vor einem Jahr: 1872 (Entwicklung: -183 Punkte)\n  ELO vor drei Jahren: 1662 (Entwicklung: +27 Punkte)\n  Historische Bilanz: 883 Spiele – 353S / 281U / 249N\n  Tore: 446 geschossen, 216 kassiert (Differenz: +230)",
+    "source": "eloratings.net – Ägypten Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Ägypten",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0051"
+  },
+  {
+    "text": "Elfenbeinküste (Kürzel: CI) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1676 (Weltrang: #52)\n  ELO vor einem Jahr: 1863 (Entwicklung: -187 Punkte)\n  ELO vor drei Jahren: 1640 (Entwicklung: +36 Punkte)\n  Historische Bilanz: 692 Spiele – 241S / 237U / 214N\n  Tore: 348 geschossen, 166 kassiert (Differenz: +182)",
+    "source": "eloratings.net – Elfenbeinküste Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Elfenbeinküste",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0052"
+  },
+  {
+    "text": "DR Kongo (Kürzel: CD) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1655 (Weltrang: #54)\n  ELO vor einem Jahr: 1782 (Entwicklung: -127 Punkte)\n  ELO vor drei Jahren: 1557 (Entwicklung: +98 Punkte)\n  Historische Bilanz: 547 Spiele – 166S / 225U / 156N\n  Tore: 226 geschossen, 171 kassiert (Differenz: +55)",
+    "source": "eloratings.net – DR Kongo Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "DR Kongo",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0053"
+  },
+  {
+    "text": "Tunesien (Kürzel: TN) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1636 (Weltrang: #58)\n  ELO vor einem Jahr: 1757 (Entwicklung: -121 Punkte)\n  ELO vor drei Jahren: 1616 (Entwicklung: +20 Punkte)\n  Historische Bilanz: 775 Spiele – 337S / 251U / 187N\n  Tore: 330 geschossen, 229 kassiert (Differenz: +101)",
+    "source": "eloratings.net – Tunesien Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Tunesien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0054"
+  },
+  {
+    "text": "Irak (Kürzel: IQ) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1607 (Weltrang: #63)\n  ELO vor einem Jahr: 1740 (Entwicklung: -133 Punkte)\n  ELO vor drei Jahren: 1622 (Entwicklung: -15 Punkte)\n  Historische Bilanz: 759 Spiele – 139S / 231U / 389N\n  Tore: 359 geschossen, 189 kassiert (Differenz: +170)",
+    "source": "eloratings.net – Irak Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Irak",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0055"
+  },
+  {
+    "text": "Bosnien & Herzegowina (Kürzel: BA) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1594 (Weltrang: #66)\n  ELO vor einem Jahr: 1806 (Entwicklung: -212 Punkte)\n  ELO vor drei Jahren: 1626 (Entwicklung: -32 Punkte)\n  Historische Bilanz: 279 Spiele – 117S / 136U / 26N\n  Tore: 104 geschossen, 111 kassiert (Differenz: -7)",
+    "source": "eloratings.net – Bosnien & Herzegowina Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Bosnien & Herzegowina",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0056"
+  },
+  {
+    "text": "Neuseeland (Kürzel: NZ) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1585 (Weltrang: #68)\n  ELO vor einem Jahr: 1640 (Entwicklung: -55 Punkte)\n  ELO vor drei Jahren: 1499 (Entwicklung: +86 Punkte)\n  Historische Bilanz: 439 Spiele – 135S / 189U / 115N\n  Tore: 181 geschossen, 179 kassiert (Differenz: +2)",
+    "source": "eloratings.net – Neuseeland Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Neuseeland",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0057"
+  },
+  {
+    "text": "Saudi-Arabien (Kürzel: SA) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1568 (Weltrang: #71)\n  ELO vor einem Jahr: 1735 (Entwicklung: -167 Punkte)\n  ELO vor drei Jahren: 1501 (Entwicklung: +67 Punkte)\n  Historische Bilanz: 835 Spiele – 322S / 151U / 362N\n  Tore: 396 geschossen, 245 kassiert (Differenz: +151)",
+    "source": "eloratings.net – Saudi-Arabien Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Saudi-Arabien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0058"
+  },
+  {
+    "text": "Kap Verde (Kürzel: CV) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1549 (Weltrang: #72)\n  ELO vor einem Jahr: 1579 (Entwicklung: -30 Punkte)\n  ELO vor drei Jahren: 1302 (Entwicklung: +247 Punkte)\n  Historische Bilanz: 251 Spiele – 80S / 91U / 80N\n  Tore: 94 geschossen, 97 kassiert (Differenz: -3)",
+    "source": "eloratings.net – Kap Verde Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Kap Verde",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0059"
+  },
+  {
+    "text": "Haiti (Kürzel: HT) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1532 (Weltrang: #77)\n  ELO vor einem Jahr: 1673 (Entwicklung: -141 Punkte)\n  ELO vor drei Jahren: 1417 (Entwicklung: +115 Punkte)\n  Historische Bilanz: 561 Spiele – 181S / 196U / 184N\n  Tore: 246 geschossen, 197 kassiert (Differenz: +49)",
+    "source": "eloratings.net – Haiti Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Haiti",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0060"
+  },
+  {
+    "text": "Südafrika (Kürzel: ZA) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1524 (Weltrang: #79)\n  ELO vor einem Jahr: 1847 (Entwicklung: -323 Punkte)\n  ELO vor drei Jahren: 1707 (Entwicklung: -183 Punkte)\n  Historische Bilanz: 524 Spiele – 275S / 161U / 88N\n  Tore: 231 geschossen, 141 kassiert (Differenz: +90)",
+    "source": "eloratings.net – Südafrika Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Südafrika",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0061"
+  },
+  {
+    "text": "Ghana (Kürzel: GH) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1505 (Weltrang: #82)\n  ELO vor einem Jahr: 1877 (Entwicklung: -372 Punkte)\n  ELO vor drei Jahren: 1651 (Entwicklung: -146 Punkte)\n  Historische Bilanz: 777 Spiele – 247S / 296U / 234N\n  Tore: 370 geschossen, 212 kassiert (Differenz: +158)",
+    "source": "eloratings.net – Ghana Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Ghana",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0062"
+  },
+  {
+    "text": "Curaçao (Kürzel: CW) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1436 (Weltrang: #90)\n  ELO vor einem Jahr: 1618 (Entwicklung: -182 Punkte)\n  ELO vor drei Jahren: 1381 (Entwicklung: +55 Punkte)\n  Historische Bilanz: 498 Spiele – 173S / 176U / 149N\n  Tore: 201 geschossen, 173 kassiert (Differenz: +28)",
+    "source": "eloratings.net – Curaçao Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Curaçao",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0063"
+  },
+  {
+    "text": "Katar (Kürzel: QA) bei der WM 2026:\n\n  Aktueller ELO-Wert: 1425 (Weltrang: #95)\n  ELO vor einem Jahr: 1771 (Entwicklung: -346 Punkte)\n  ELO vor drei Jahren: 1416 (Entwicklung: +9 Punkte)\n  Historische Bilanz: 697 Spiele – 328S / 146U / 223N\n  Tore: 289 geschossen, 232 kassiert (Differenz: +57)",
+    "source": "eloratings.net – Katar Profil Mai 2026",
+    "source_url": "https://eloratings.net/World.tsv",
+    "data_type": "elo",
+    "team": "Katar",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0064"
+  },
+  {
+    "text": "Die FIFA Fußball-Weltmeisterschaft 2026 findet in USA, Kanada, Mexiko statt. 48 Teams spielen in 12 Gruppen à 4 Teams. Das Finale ist am 2026-07-19 in New York/New Jersey (East Rutherford). Die besten 2 jeder Gruppe sowie die 8 besten Dritten (32 Teams total) kommen weiter.",
+    "source": "openfootball/worldcup.json – Turnier-Überblick WM 2026",
+    "source_url": "https://github.com/openfootball/worldcup.json",
+    "data_type": "fixture",
+    "team": "",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0065"
+  },
+  {
+    "text": "Gruppen-Einteilung der WM 2026:\n\n  Group A: Mexico | South Africa | South Korea | Czech Republic\n  Group B: Canada | Bosnia & Herzegovina | Qatar | Switzerland\n  Group C: Brazil | Morocco | Haiti | Scotland\n  Group D: USA | Paraguay | Australia | Turkey\n  Group E: Germany | Curaçao | Ivory Coast | Ecuador\n  Group F: Netherlands | Japan | Sweden | Tunisia\n  Group G: Belgium | Egypt | Iran | New Zealand\n  Group H: Spain | Cape Verde | Saudi Arabia | Uruguay\n  Group I: France | Senegal | Iraq | Norway\n  Group J: Argentina | Algeria | Austria | Jordan\n  Group K: Portugal | DR Congo | Uzbekistan | Colombia\n  Group L: England | Croatia | Ghana | Panama",
+    "source": "openfootball/worldcup.json – Gruppenauslosung WM 2026",
+    "source_url": "https://github.com/openfootball/worldcup.json",
+    "data_type": "group",
+    "team": "",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0066"
+  },
+  {
+    "text": "Group A der WM 2026:\n  Teams: Mexico, South Africa, South Korea, Czech Republic\n  Spiele:\n    2026-06-11: Mexico vs. South Africa (Mexico City)\n    2026-06-11: South Korea vs. Czech Republic (Guadalajara (Zapopan))\n    2026-06-18: Czech Republic vs. South Africa (Atlanta)\n    2026-06-18: Mexico vs. South Korea (Guadalajara (Zapopan))\n    2026-06-24: Czech Republic vs. Mexico (Mexico City)\n    2026-06-24: South Africa vs. South Korea (Monterrey (Guadalupe))\n  Mexico spielt gegen: Mexico vs. South Africa am 2026-06-11, Mexico vs. South Korea am 2026-06-18, Czech Republic vs. Mexico am 2026-06-24\n  South Africa spielt gegen: Mexico vs. South Africa am 2026-06-11, Czech Republic vs. South Africa am 2026-06-18, South Africa vs. South Korea am 2026-06-24\n  South Korea spielt gegen: South Korea vs. Czech Republic am 2026-06-11, Mexico vs. South Korea am 2026-06-18, South Africa vs. South Korea am 2026-06-24\n  Czech Republic spielt gegen: South Korea vs. Czech Republic am 2026-06-11, Czech Republic vs. South Africa am 2026-06-18, Czech Republic vs. Mexico am 2026-06-24",
+    "source": "openfootball/worldcup.json – Group A WM 2026",
+    "source_url": "https://github.com/openfootball/worldcup.json",
+    "data_type": "fixture",
+    "team": "Mexico | South Africa | South Korea | Czech Republic",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0067"
+  },
+  {
+    "text": "Group B der WM 2026:\n  Teams: Canada, Bosnia & Herzegovina, Qatar, Switzerland\n  Spiele:\n    2026-06-12: Canada vs. Bosnia & Herzegovina (Toronto)\n    2026-06-13: Qatar vs. Switzerland (San Francisco Bay Area (Santa Clara))\n    2026-06-18: Switzerland vs. Bosnia & Herzegovina (Los Angeles (Inglewood))\n    2026-06-18: Canada vs. Qatar (Vancouver)\n    2026-06-24: Switzerland vs. Canada (Vancouver)\n    2026-06-24: Bosnia & Herzegovina vs. Qatar (Seattle)\n  Canada spielt gegen: Canada vs. Bosnia & Herzegovina am 2026-06-12, Canada vs. Qatar am 2026-06-18, Switzerland vs. Canada am 2026-06-24\n  Bosnia & Herzegovina spielt gegen: Canada vs. Bosnia & Herzegovina am 2026-06-12, Switzerland vs. Bosnia & Herzegovina am 2026-06-18, Bosnia & Herzegovina vs. Qatar am 2026-06-24\n  Qatar spielt gegen: Qatar vs. Switzerland am 2026-06-13, Canada vs. Qatar am 2026-06-18, Bosnia & Herzegovina vs. Qatar am 2026-06-24\n  Switzerland spielt gegen: Qatar vs. Switzerland am 2026-06-13, Switzerland vs. Bosnia & Herzegovina am 2026-06-18, Switzerland vs. Canada am 2026-06-24",
+    "source": "openfootball/worldcup.json – Group B WM 2026",
+    "source_url": "https://github.com/openfootball/worldcup.json",
+    "data_type": "fixture",
+    "team": "Canada | Bosnia & Herzegovina | Qatar | Switzerland",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0068"
+  },
+  {
+    "text": "Group C der WM 2026:\n  Teams: Brazil, Morocco, Haiti, Scotland\n  Spiele:\n    2026-06-13: Brazil vs. Morocco (New York/New Jersey (East Rutherford))\n    2026-06-13: Haiti vs. Scotland (Boston (Foxborough))\n    2026-06-19: Scotland vs. Morocco (Boston (Foxborough))\n    2026-06-19: Brazil vs. Haiti (Philadelphia)\n    2026-06-24: Scotland vs. Brazil (Miami (Miami Gardens))\n    2026-06-24: Morocco vs. Haiti (Atlanta)\n  Brazil spielt gegen: Brazil vs. Morocco am 2026-06-13, Brazil vs. Haiti am 2026-06-19, Scotland vs. Brazil am 2026-06-24\n  Morocco spielt gegen: Brazil vs. Morocco am 2026-06-13, Scotland vs. Morocco am 2026-06-19, Morocco vs. Haiti am 2026-06-24\n  Haiti spielt gegen: Haiti vs. Scotland am 2026-06-13, Brazil vs. Haiti am 2026-06-19, Morocco vs. Haiti am 2026-06-24\n  Scotland spielt gegen: Haiti vs. Scotland am 2026-06-13, Scotland vs. Morocco am 2026-06-19, Scotland vs. Brazil am 2026-06-24",
+    "source": "openfootball/worldcup.json – Group C WM 2026",
+    "source_url": "https://github.com/openfootball/worldcup.json",
+    "data_type": "fixture",
+    "team": "Brazil | Morocco | Haiti | Scotland",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0069"
+  },
+  {
+    "text": "Group D der WM 2026:\n  Teams: USA, Paraguay, Australia, Turkey\n  Spiele:\n    2026-06-12: USA vs. Paraguay (Los Angeles (Inglewood))\n    2026-06-13: Australia vs. Turkey (Vancouver)\n    2026-06-19: USA vs. Australia (Seattle)\n    2026-06-19: Turkey vs. Paraguay (San Francisco Bay Area (Santa Clara))\n    2026-06-25: Turkey vs. USA (Los Angeles (Inglewood))\n    2026-06-25: Paraguay vs. Australia (San Francisco Bay Area (Santa Clara))\n  USA spielt gegen: USA vs. Paraguay am 2026-06-12, USA vs. Australia am 2026-06-19, Turkey vs. USA am 2026-06-25\n  Paraguay spielt gegen: USA vs. Paraguay am 2026-06-12, Turkey vs. Paraguay am 2026-06-19, Paraguay vs. Australia am 2026-06-25\n  Australia spielt gegen: Australia vs. Turkey am 2026-06-13, USA vs. Australia am 2026-06-19, Paraguay vs. Australia am 2026-06-25\n  Turkey spielt gegen: Australia vs. Turkey am 2026-06-13, Turkey vs. Paraguay am 2026-06-19, Turkey vs. USA am 2026-06-25",
+    "source": "openfootball/worldcup.json – Group D WM 2026",
+    "source_url": "https://github.com/openfootball/worldcup.json",
+    "data_type": "fixture",
+    "team": "USA | Paraguay | Australia | Turkey",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0070"
+  },
+  {
+    "text": "Group E der WM 2026:\n  Teams: Germany, Curaçao, Ivory Coast, Ecuador\n  Spiele:\n    2026-06-14: Germany vs. Curaçao (Houston)\n    2026-06-14: Ivory Coast vs. Ecuador (Philadelphia)\n    2026-06-20: Germany vs. Ivory Coast (Toronto)\n    2026-06-20: Ecuador vs. Curaçao (Kansas City)\n    2026-06-25: Curaçao vs. Ivory Coast (Philadelphia)\n    2026-06-25: Ecuador vs. Germany (New York/New Jersey (East Rutherford))\n  Germany spielt gegen: Germany vs. Curaçao am 2026-06-14, Germany vs. Ivory Coast am 2026-06-20, Ecuador vs. Germany am 2026-06-25\n  Curaçao spielt gegen: Germany vs. Curaçao am 2026-06-14, Ecuador vs. Curaçao am 2026-06-20, Curaçao vs. Ivory Coast am 2026-06-25\n  Ivory Coast spielt gegen: Ivory Coast vs. Ecuador am 2026-06-14, Germany vs. Ivory Coast am 2026-06-20, Curaçao vs. Ivory Coast am 2026-06-25\n  Ecuador spielt gegen: Ivory Coast vs. Ecuador am 2026-06-14, Ecuador vs. Curaçao am 2026-06-20, Ecuador vs. Germany am 2026-06-25",
+    "source": "openfootball/worldcup.json – Group E WM 2026",
+    "source_url": "https://github.com/openfootball/worldcup.json",
+    "data_type": "fixture",
+    "team": "Germany | Curaçao | Ivory Coast | Ecuador",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0071"
+  },
+  {
+    "text": "Group F der WM 2026:\n  Teams: Netherlands, Japan, Sweden, Tunisia\n  Spiele:\n    2026-06-14: Netherlands vs. Japan (Dallas (Arlington))\n    2026-06-14: Sweden vs. Tunisia (Monterrey (Guadalupe))\n    2026-06-20: Netherlands vs. Sweden (Houston)\n    2026-06-20: Tunisia vs. Japan (Monterrey (Guadalupe))\n    2026-06-25: Japan vs. Sweden (Dallas (Arlington))\n    2026-06-25: Tunisia vs. Netherlands (Kansas City)\n  Netherlands spielt gegen: Netherlands vs. Japan am 2026-06-14, Netherlands vs. Sweden am 2026-06-20, Tunisia vs. Netherlands am 2026-06-25\n  Japan spielt gegen: Netherlands vs. Japan am 2026-06-14, Tunisia vs. Japan am 2026-06-20, Japan vs. Sweden am 2026-06-25\n  Sweden spielt gegen: Sweden vs. Tunisia am 2026-06-14, Netherlands vs. Sweden am 2026-06-20, Japan vs. Sweden am 2026-06-25\n  Tunisia spielt gegen: Sweden vs. Tunisia am 2026-06-14, Tunisia vs. Japan am 2026-06-20, Tunisia vs. Netherlands am 2026-06-25",
+    "source": "openfootball/worldcup.json – Group F WM 2026",
+    "source_url": "https://github.com/openfootball/worldcup.json",
+    "data_type": "fixture",
+    "team": "Netherlands | Japan | Sweden | Tunisia",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0072"
+  },
+  {
+    "text": "Group G der WM 2026:\n  Teams: Belgium, Egypt, Iran, New Zealand\n  Spiele:\n    2026-06-15: Belgium vs. Egypt (Seattle)\n    2026-06-15: Iran vs. New Zealand (Los Angeles (Inglewood))\n    2026-06-21: Belgium vs. Iran (Los Angeles (Inglewood))\n    2026-06-21: New Zealand vs. Egypt (Vancouver)\n    2026-06-26: Egypt vs. Iran (Seattle)\n    2026-06-26: New Zealand vs. Belgium (Vancouver)\n  Belgium spielt gegen: Belgium vs. Egypt am 2026-06-15, Belgium vs. Iran am 2026-06-21, New Zealand vs. Belgium am 2026-06-26\n  Egypt spielt gegen: Belgium vs. Egypt am 2026-06-15, New Zealand vs. Egypt am 2026-06-21, Egypt vs. Iran am 2026-06-26\n  Iran spielt gegen: Iran vs. New Zealand am 2026-06-15, Belgium vs. Iran am 2026-06-21, Egypt vs. Iran am 2026-06-26\n  New Zealand spielt gegen: Iran vs. New Zealand am 2026-06-15, New Zealand vs. Egypt am 2026-06-21, New Zealand vs. Belgium am 2026-06-26",
+    "source": "openfootball/worldcup.json – Group G WM 2026",
+    "source_url": "https://github.com/openfootball/worldcup.json",
+    "data_type": "fixture",
+    "team": "Belgium | Egypt | Iran | New Zealand",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0073"
+  },
+  {
+    "text": "Group H der WM 2026:\n  Teams: Spain, Cape Verde, Saudi Arabia, Uruguay\n  Spiele:\n    2026-06-15: Spain vs. Cape Verde (Atlanta)\n    2026-06-15: Saudi Arabia vs. Uruguay (Miami (Miami Gardens))\n    2026-06-21: Spain vs. Saudi Arabia (Atlanta)\n    2026-06-21: Uruguay vs. Cape Verde (Miami (Miami Gardens))\n    2026-06-26: Cape Verde vs. Saudi Arabia (Houston)\n    2026-06-26: Uruguay vs. Spain (Guadalajara (Zapopan))\n  Spain spielt gegen: Spain vs. Cape Verde am 2026-06-15, Spain vs. Saudi Arabia am 2026-06-21, Uruguay vs. Spain am 2026-06-26\n  Cape Verde spielt gegen: Spain vs. Cape Verde am 2026-06-15, Uruguay vs. Cape Verde am 2026-06-21, Cape Verde vs. Saudi Arabia am 2026-06-26\n  Saudi Arabia spielt gegen: Saudi Arabia vs. Uruguay am 2026-06-15, Spain vs. Saudi Arabia am 2026-06-21, Cape Verde vs. Saudi Arabia am 2026-06-26\n  Uruguay spielt gegen: Saudi Arabia vs. Uruguay am 2026-06-15, Uruguay vs. Cape Verde am 2026-06-21, Uruguay vs. Spain am 2026-06-26",
+    "source": "openfootball/worldcup.json – Group H WM 2026",
+    "source_url": "https://github.com/openfootball/worldcup.json",
+    "data_type": "fixture",
+    "team": "Spain | Cape Verde | Saudi Arabia | Uruguay",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0074"
+  },
+  {
+    "text": "Group I der WM 2026:\n  Teams: France, Senegal, Iraq, Norway\n  Spiele:\n    2026-06-16: France vs. Senegal (New York/New Jersey (East Rutherford))\n    2026-06-16: Iraq vs. Norway (Boston (Foxborough))\n    2026-06-22: France vs. Iraq (Philadelphia)\n    2026-06-22: Norway vs. Senegal (New York/New Jersey (East Rutherford))\n    2026-06-26: Norway vs. France (Boston (Foxborough))\n    2026-06-26: Senegal vs. Iraq (Toronto)\n  France spielt gegen: France vs. Senegal am 2026-06-16, France vs. Iraq am 2026-06-22, Norway vs. France am 2026-06-26\n  Senegal spielt gegen: France vs. Senegal am 2026-06-16, Norway vs. Senegal am 2026-06-22, Senegal vs. Iraq am 2026-06-26\n  Iraq spielt gegen: Iraq vs. Norway am 2026-06-16, France vs. Iraq am 2026-06-22, Senegal vs. Iraq am 2026-06-26\n  Norway spielt gegen: Iraq vs. Norway am 2026-06-16, Norway vs. Senegal am 2026-06-22, Norway vs. France am 2026-06-26",
+    "source": "openfootball/worldcup.json – Group I WM 2026",
+    "source_url": "https://github.com/openfootball/worldcup.json",
+    "data_type": "fixture",
+    "team": "France | Senegal | Iraq | Norway",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0075"
+  },
+  {
+    "text": "Group J der WM 2026:\n  Teams: Argentina, Algeria, Austria, Jordan\n  Spiele:\n    2026-06-16: Argentina vs. Algeria (Kansas City)\n    2026-06-16: Austria vs. Jordan (San Francisco Bay Area (Santa Clara))\n    2026-06-22: Argentina vs. Austria (Dallas (Arlington))\n    2026-06-22: Jordan vs. Algeria (San Francisco Bay Area (Santa Clara))\n    2026-06-27: Algeria vs. Austria (Kansas City)\n    2026-06-27: Jordan vs. Argentina (Dallas (Arlington))\n  Argentina spielt gegen: Argentina vs. Algeria am 2026-06-16, Argentina vs. Austria am 2026-06-22, Jordan vs. Argentina am 2026-06-27\n  Algeria spielt gegen: Argentina vs. Algeria am 2026-06-16, Jordan vs. Algeria am 2026-06-22, Algeria vs. Austria am 2026-06-27\n  Austria spielt gegen: Austria vs. Jordan am 2026-06-16, Argentina vs. Austria am 2026-06-22, Algeria vs. Austria am 2026-06-27\n  Jordan spielt gegen: Austria vs. Jordan am 2026-06-16, Jordan vs. Algeria am 2026-06-22, Jordan vs. Argentina am 2026-06-27",
+    "source": "openfootball/worldcup.json – Group J WM 2026",
+    "source_url": "https://github.com/openfootball/worldcup.json",
+    "data_type": "fixture",
+    "team": "Argentina | Algeria | Austria | Jordan",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0076"
+  },
+  {
+    "text": "Group K der WM 2026:\n  Teams: Portugal, DR Congo, Uzbekistan, Colombia\n  Spiele:\n    2026-06-17: Portugal vs. DR Congo (Houston)\n    2026-06-17: Uzbekistan vs. Colombia (Mexico City)\n    2026-06-23: Portugal vs. Uzbekistan (Houston)\n    2026-06-23: Colombia vs. DR Congo (Guadalajara (Zapopan))\n    2026-06-27: Colombia vs. Portugal (Miami (Miami Gardens))\n    2026-06-27: DR Congo vs. Uzbekistan (Atlanta)\n  Portugal spielt gegen: Portugal vs. DR Congo am 2026-06-17, Portugal vs. Uzbekistan am 2026-06-23, Colombia vs. Portugal am 2026-06-27\n  DR Congo spielt gegen: Portugal vs. DR Congo am 2026-06-17, Colombia vs. DR Congo am 2026-06-23, DR Congo vs. Uzbekistan am 2026-06-27\n  Uzbekistan spielt gegen: Uzbekistan vs. Colombia am 2026-06-17, Portugal vs. Uzbekistan am 2026-06-23, DR Congo vs. Uzbekistan am 2026-06-27\n  Colombia spielt gegen: Uzbekistan vs. Colombia am 2026-06-17, Colombia vs. DR Congo am 2026-06-23, Colombia vs. Portugal am 2026-06-27",
+    "source": "openfootball/worldcup.json – Group K WM 2026",
+    "source_url": "https://github.com/openfootball/worldcup.json",
+    "data_type": "fixture",
+    "team": "Portugal | DR Congo | Uzbekistan | Colombia",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0077"
+  },
+  {
+    "text": "Group L der WM 2026:\n  Teams: England, Croatia, Ghana, Panama\n  Spiele:\n    2026-06-17: England vs. Croatia (Dallas (Arlington))\n    2026-06-17: Ghana vs. Panama (Toronto)\n    2026-06-23: England vs. Ghana (Boston (Foxborough))\n    2026-06-23: Panama vs. Croatia (Toronto)\n    2026-06-27: Panama vs. England (New York/New Jersey (East Rutherford))\n    2026-06-27: Croatia vs. Ghana (Philadelphia)\n  England spielt gegen: England vs. Croatia am 2026-06-17, England vs. Ghana am 2026-06-23, Panama vs. England am 2026-06-27\n  Croatia spielt gegen: England vs. Croatia am 2026-06-17, Panama vs. Croatia am 2026-06-23, Croatia vs. Ghana am 2026-06-27\n  Ghana spielt gegen: Ghana vs. Panama am 2026-06-17, England vs. Ghana am 2026-06-23, Croatia vs. Ghana am 2026-06-27\n  Panama spielt gegen: Ghana vs. Panama am 2026-06-17, Panama vs. Croatia am 2026-06-23, Panama vs. England am 2026-06-27",
+    "source": "openfootball/worldcup.json – Group L WM 2026",
+    "source_url": "https://github.com/openfootball/worldcup.json",
+    "data_type": "fixture",
+    "team": "England | Croatia | Ghana | Panama",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0078"
+  },
+  {
+    "text": "Die WM 2026 ist das erste Turnier mit 48 Mannschaften – das ist eine Erweiterung von den bisherigen 32 Teams. Die 48 Teams spielen zunächst in 12 Gruppen zu je 4 Teams, bevor die besten 32 ins direkte K.o.-System wechseln.",
+    "source": "WM-2026-Wissensbank – wm2026_format",
+    "source_url": "lokal",
+    "data_type": "trivia",
+    "team": "",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0079"
+  },
+  {
+    "text": "Die WM 2026 wird erstmals von drei Ländern gemeinsam ausgetragen: USA, Kanada und Mexiko. Das Finale findet am 19. Juli 2026 im MetLife Stadium in East Rutherford, New Jersey (New York-Bereich) statt. Es ist das größte Fußball-Stadion Nordamerikas.",
+    "source": "WM-2026-Wissensbank – wm2026_gastgeber",
+    "source_url": "lokal",
+    "data_type": "trivia",
+    "team": "",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0080"
+  },
+  {
+    "text": "Da die WM 2026 in Nordamerika stattfindet, haben USA, Kanada und Mexiko einen Heimvorteil. Besonders die USA (ELO-Rang 41) und Kanada (Rang 25) hoffen auf eine starke Leistung vor eigenem Publikum. Mexiko hat historisch die meisten WM-Turniere gespielt und gilt als erfahrener Gastgeber.",
+    "source": "WM-2026-Wissensbank – wm2026_heimvorteil",
+    "source_url": "lokal",
+    "data_type": "trivia",
+    "team": "",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0081"
+  },
+  {
+    "text": "Spanien ist laut ELO-Rating das stärkste Nationalteam der Welt (ELO: 2165, Stand Mai 2026). Die Spanier haben die WM 2010 gewonnen und gelten als Topfavorit für den Titel 2026. Ihre Spielstärke basiert auf technisch hochwertigem Kombinationsfußball (Tiki-Taka).",
+    "source": "WM-2026-Wissensbank – spanien_favorit",
+    "source_url": "lokal",
+    "data_type": "trivia",
+    "team": "Spanien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0082"
+  },
+  {
+    "text": "Argentinien ist der amtierende Weltmeister (WM 2022 in Katar) und Titelverteidiger bei der WM 2026. Mit Superstar Lionel Messi, der 2022 seinen ersten WM-Titel gewann, gehören sie zu den Favoriten – obwohl Messi zum Zeitpunkt der WM 2026 bereits 38 Jahre alt ist. Argentinien belegt ELO-Rang 2 mit einem Rating von 2113.",
+    "source": "WM-2026-Wissensbank – argentinien_titelverteidiger",
+    "source_url": "lokal",
+    "data_type": "trivia",
+    "team": "Argentinien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0083"
+  },
+  {
+    "text": "Deutschland (ELO-Rang 11, Rating: 1923) arbeitet seit dem frühen WM-Aus 2022 (Gruppenphase) an einem Comeback. Die DFB-Mannschaft hat eine der reichsten WM-Historien: 4 Weltmeistertitel (1954, 1974, 1990, 2014) und 4 Vizeehren. Mit einer erneuerten Mannschaft wollen die Deutschen 2026 wieder angreifen.",
+    "source": "WM-2026-Wissensbank – deutschland_comeback",
+    "source_url": "lokal",
+    "data_type": "trivia",
+    "team": "Deutschland",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0084"
+  },
+  {
+    "text": "Frankreich (ELO-Rang 3, Rating: 2081) ist mit Kylian Mbappé einer der heißesten Anwärter auf den WM-Titel. Die Franzosen wurden 1998 Weltmeister und 2018 – und haben seitdem einen der stärksten Kader Europas. Mbappé gilt als bester Spieler der Welt.",
+    "source": "WM-2026-Wissensbank – frankreich_titelchance",
+    "source_url": "lokal",
+    "data_type": "trivia",
+    "team": "Frankreich",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0085"
+  },
+  {
+    "text": "Brasilien ist Rekordweltmeister mit 5 WM-Titeln (1958, 1962, 1970, 1994, 2002) und das einzige Land, das bei jeder WM dabei war. Ihr ELO-Rating liegt bei 1984 (Rang 5). Das letzte WM-Finale spielten sie 2002 – seitdem suchen sie nach dem sechsten Titel.",
+    "source": "WM-2026-Wissensbank – brasilien_rekord",
+    "source_url": "lokal",
+    "data_type": "trivia",
+    "team": "Brasilien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0086"
+  },
+  {
+    "text": "Norwegen ist einer der überraschenden Aufsteiger im Weltfußball und belegt ELO-Rang 12 mit einem Rating von 1912. Mit Erling Haaland (Manchester City) haben sie einen der torgefährlichsten Stürmer der Welt. Es wäre erst Norwegens zweite WM-Teilnahme (nach 1994 und 1998) – ein echter Geheimtipp!",
+    "source": "WM-2026-Wissensbank – norwegen_geheimtipp",
+    "source_url": "lokal",
+    "data_type": "trivia",
+    "team": "Norwegen",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0087"
+  },
+  {
+    "text": "Kolumbien (ELO-Rang 7, Rating: 1975) hat sich unter Trainer Néstor Lorenzo zur echten Überraschungsmannschaft entwickelt. Sie wurden Copa-América-Vizemeister 2024 und gelten als einer der gefährlichsten Außenseiter. James Rodríguez ist ihr Spielmacher.",
+    "source": "WM-2026-Wissensbank – kolumbien_aufsteiger",
+    "source_url": "lokal",
+    "data_type": "trivia",
+    "team": "Kolumbien",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0088"
+  },
+  {
+    "text": "Das ELO-Ratingsystem wurde ursprünglich für Schach entwickelt und misst die relative Stärke von Teams. Jedes Spiel aktualisiert die Ratings beider Teams: Ein Sieg gegen einen stärkeren Gegner gibt mehr Punkte als ein Sieg gegen einen schwächeren. Das System berücksichtigt auch die Tordifferenz und ob es ein Pflichtspiel oder Freundschaftsspiel ist. ELO-Ratings sind zuverlässiger als FIFA-Rankings für Vorhersagen.",
+    "source": "WM-2026-Wissensbank – elo_erklaerung",
+    "source_url": "lokal",
+    "data_type": "trivia",
+    "team": "",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0089"
+  },
+  {
+    "text": "Der Unterschied zwischen ELO-Rating und FIFA-Weltrangliste: Die FIFA-Rangliste bewertet Punkte über einen längeren Zeitraum und gewichtet Kontinentalturniere unterschiedlich. Das ELO-System von eloratings.net dagegen misst die tatsächliche Spielstärke in jedem Spiel und reagiert schneller auf Formveränderungen. Für Vorhersagen gilt ELO als wissenschaftlich fundierter.",
+    "source": "WM-2026-Wissensbank – elo_vs_fifa",
+    "source_url": "lokal",
+    "data_type": "trivia",
+    "team": "",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0090"
+  },
+  {
+    "text": "Monte-Carlo-Simulation für WM-Vorhersagen: Wir simulieren das gesamte WM-Turnier 10.000 Mal. In jeder Simulation wird jedes Spiel basierend auf den ELO-Ratings der Teams \"ausgewürfelt\" – stärkere Teams gewinnen häufiger, aber schwächere Teams können auch überraschend gewinnen (wie im echten Fußball!). Die Häufigkeit, mit der ein Team in den 10.000 Simulationen Weltmeister wird, ergibt die Gewinnwahrscheinlichkeit.",
+    "source": "WM-2026-Wissensbank – monte_carlo_erklaerung",
+    "source_url": "lokal",
+    "data_type": "trivia",
+    "team": "",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0091"
+  },
+  {
+    "text": "Die WM 2026 hat 12 Gruppen (A bis L) mit je 4 Teams. Die Top 2 jeder Gruppe (24 Teams) sowie die 8 besten Gruppendritten (8 Teams) kommen weiter ins Round of 32 mit insgesamt 32 Teams. Interessante Gruppen: Gruppe E (Deutschland vs. Elfenbeinküste vs. Ecuador), Gruppe I (Frankreich vs. Senegal vs. Norwegen vs. Irak), Gruppe J (Argentinien vs. Algerien vs. Österreich vs. Jordanien).",
+    "source": "WM-2026-Wissensbank – wm2026_gruppen_ueberblick",
+    "source_url": "lokal",
+    "data_type": "trivia",
+    "team": "",
+    "tournament": "WM 2026",
+    "year": 2026,
+    "chunk_id": "wm2026_0092"
+  }
+]

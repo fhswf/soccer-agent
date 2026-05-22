@@ -1,0 +1,117 @@
+facts:
+  - id: wm2026_format
+    category: turnier
+    text: >
+      Die WM 2026 ist das erste Turnier mit 48 Mannschaften – das ist eine Erweiterung von den
+      bisherigen 32 Teams. Die 48 Teams spielen zunächst in 12 Gruppen zu je 4 Teams, bevor
+      die besten 32 ins direkte K.o.-System wechseln.
+
+  - id: wm2026_gastgeber
+    category: turnier
+    text: >
+      Die WM 2026 wird erstmals von drei Ländern gemeinsam ausgetragen: USA, Kanada und Mexiko.
+      Das Finale findet am 19. Juli 2026 im MetLife Stadium in East Rutherford, New Jersey
+      (New York-Bereich) statt. Es ist das größte Fußball-Stadion Nordamerikas.
+
+  - id: wm2026_heimvorteil
+    category: turnier
+    text: >
+      Da die WM 2026 in Nordamerika stattfindet, haben USA, Kanada und Mexiko einen Heimvorteil.
+      Besonders die USA (ELO-Rang 41) und Kanada (Rang 25) hoffen auf eine starke Leistung vor
+      eigenem Publikum. Mexiko hat historisch die meisten WM-Turniere gespielt und gilt als
+      erfahrener Gastgeber.
+
+  - id: spanien_favorit
+    category: team
+    team: Spanien
+    text: >
+      Spanien ist laut ELO-Rating das stärkste Nationalteam der Welt (ELO: 2165, Stand Mai 2026).
+      Die Spanier haben die WM 2010 gewonnen und gelten als Topfavorit für den Titel 2026.
+      Ihre Spielstärke basiert auf technisch hochwertigem Kombinationsfußball (Tiki-Taka).
+
+  - id: argentinien_titelverteidiger
+    category: team
+    team: Argentinien
+    text: >
+      Argentinien ist der amtierende Weltmeister (WM 2022 in Katar) und Titelverteidiger bei
+      der WM 2026. Mit Superstar Lionel Messi, der 2022 seinen ersten WM-Titel gewann, gehören
+      sie zu den Favoriten – obwohl Messi zum Zeitpunkt der WM 2026 bereits 38 Jahre alt ist.
+      Argentinien belegt ELO-Rang 2 mit einem Rating von 2113.
+
+  - id: deutschland_comeback
+    category: team
+    team: Deutschland
+    text: >
+      Deutschland (ELO-Rang 11, Rating: 1923) arbeitet seit dem frühen WM-Aus 2022 (Gruppenphase)
+      an einem Comeback. Die DFB-Mannschaft hat eine der reichsten WM-Historien: 4 Weltmeistertitel
+      (1954, 1974, 1990, 2014) und 4 Vizeehren. Mit einer erneuerten Mannschaft wollen die Deutschen
+      2026 wieder angreifen.
+
+  - id: frankreich_titelchance
+    category: team
+    team: Frankreich
+    text: >
+      Frankreich (ELO-Rang 3, Rating: 2081) ist mit Kylian Mbappé einer der heißesten Anwärter
+      auf den WM-Titel. Die Franzosen wurden 1998 Weltmeister und 2018 – und haben seitdem
+      einen der stärksten Kader Europas. Mbappé gilt als bester Spieler der Welt.
+
+  - id: brasilien_rekord
+    category: team
+    team: Brasilien
+    text: >
+      Brasilien ist Rekordweltmeister mit 5 WM-Titeln (1958, 1962, 1970, 1994, 2002) und
+      das einzige Land, das bei jeder WM dabei war. Ihr ELO-Rating liegt bei 1984 (Rang 5).
+      Das letzte WM-Finale spielten sie 2002 – seitdem suchen sie nach dem sechsten Titel.
+
+  - id: norwegen_geheimtipp
+    category: team
+    team: Norwegen
+    text: >
+      Norwegen ist einer der überraschenden Aufsteiger im Weltfußball und belegt ELO-Rang 12
+      mit einem Rating von 1912. Mit Erling Haaland (Manchester City) haben sie einen der
+      torgefährlichsten Stürmer der Welt. Es wäre erst Norwegens zweite WM-Teilnahme
+      (nach 1994 und 1998) – ein echter Geheimtipp!
+
+  - id: kolumbien_aufsteiger
+    category: team
+    team: Kolumbien
+    text: >
+      Kolumbien (ELO-Rang 7, Rating: 1975) hat sich unter Trainer Néstor Lorenzo zur echten
+      Überraschungsmannschaft entwickelt. Sie wurden Copa-América-Vizemeister 2024 und gelten
+      als einer der gefährlichsten Außenseiter. James Rodríguez ist ihr Spielmacher.
+
+  - id: elo_erklaerung
+    category: methode
+    text: >
+      Das ELO-Ratingsystem wurde ursprünglich für Schach entwickelt und misst die relative
+      Stärke von Teams. Jedes Spiel aktualisiert die Ratings beider Teams: Ein Sieg gegen
+      einen stärkeren Gegner gibt mehr Punkte als ein Sieg gegen einen schwächeren. Das System
+      berücksichtigt auch die Tordifferenz und ob es ein Pflichtspiel oder Freundschaftsspiel ist.
+      ELO-Ratings sind zuverlässiger als FIFA-Rankings für Vorhersagen.
+
+  - id: elo_vs_fifa
+    category: methode
+    text: >
+      Der Unterschied zwischen ELO-Rating und FIFA-Weltrangliste: Die FIFA-Rangliste bewertet
+      Punkte über einen längeren Zeitraum und gewichtet Kontinentalturniere unterschiedlich.
+      Das ELO-System von eloratings.net dagegen misst die tatsächliche Spielstärke in jedem
+      Spiel und reagiert schneller auf Formveränderungen. Für Vorhersagen gilt ELO als
+      wissenschaftlich fundierter.
+
+  - id: monte_carlo_erklaerung
+    category: methode
+    text: >
+      Monte-Carlo-Simulation für WM-Vorhersagen: Wir simulieren das gesamte WM-Turnier
+      10.000 Mal. In jeder Simulation wird jedes Spiel basierend auf den ELO-Ratings der
+      Teams "ausgewürfelt" – stärkere Teams gewinnen häufiger, aber schwächere Teams können
+      auch überraschend gewinnen (wie im echten Fußball!). Die Häufigkeit, mit der ein Team
+      in den 10.000 Simulationen Weltmeister wird, ergibt die Gewinnwahrscheinlichkeit.
+
+  - id: wm2026_gruppen_ueberblick
+    category: turnier
+    text: >
+      Die WM 2026 hat 12 Gruppen (A bis L) mit je 4 Teams. Die Top 2 jeder Gruppe (24 Teams)
+      sowie die 8 besten Gruppendritten (8 Teams) kommen weiter ins Round of 32 mit insgesamt
+      32 Teams. Interessante Gruppen: Gruppe E (Deutschland vs. Elfenbeinküste vs. Ecuador),
+      Gruppe I (Frankreich vs. Senegal vs. Norwegen vs. Irak), Gruppe J (Argentinien vs. Algerien
+      vs. Österreich vs. Jordanien).
