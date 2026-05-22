@@ -122,10 +122,12 @@ def _get_best_thirds(group_standings: dict[str, list[str]]) -> list[str]:
     return [t for t, _ in thirds[:8]]
 
 
-def _simulate_knockout(group_standings: dict[str, list[str]]) -> dict[str, str]:
+def _simulate_knockout(
+    group_standings: dict[str, list[str]]
+) -> tuple[dict[str, list[str]], str, dict[str, dict[str, str]]]:
     """
     Simuliert die K.o.-Phase (Round of 32 → Finale).
-    Gibt zurück: {Runden-Name: Sieger} und den Weltmeister.
+    Gibt zurück: (champions, world_champion, opponents_map)
     """
     # Qualifikanten aufbauen
     # Gruppensieger (1.) und Zweite (2.) qualifizieren sich automatisch
@@ -151,19 +153,24 @@ def _simulate_knockout(group_standings: dict[str, list[str]]) -> dict[str, str]:
     current_round = round32_teams
     round_names = ["Round of 32", "Round of 16", "Viertelfinale", "Halbfinale", "Finale"]
     champions: dict[str, list[str]] = {r: [] for r in round_names}
+    opponents_map: dict[str, dict[str, str]] = {t: {} for t in round32_teams}
 
     for round_name in round_names:
         next_round: list[str] = []
         if len(current_round) < 2:
             break
         for i in range(0, len(current_round) - 1, 2):
-            winner = _simulate_match(current_round[i], current_round[i + 1], knockout=True)
+            t1 = current_round[i]
+            t2 = current_round[i + 1]
+            opponents_map[t1][round_name] = t2
+            opponents_map[t2][round_name] = t1
+            winner = _simulate_match(t1, t2, knockout=True)
             next_round.append(winner)
             champions[round_name].append(winner)
         current_round = next_round
 
     world_champion = current_round[0] if current_round else ""
-    return champions, world_champion
+    return champions, world_champion, opponents_map
 
 
 def _make_bar(prob: float, width: int = 20) -> str:
@@ -209,6 +216,12 @@ def run(
         t: {r: 0 for r in ROUNDS_ORDER} for t in all_teams
     }
 
+    # round_name -> team_name -> opponent -> count
+    opponent_counts: dict[str, dict[str, dict[str, int]]] = {
+        r: {t: {} for t in all_teams}
+        for r in ["Round of 32", "Round of 16", "Viertelfinale", "Halbfinale", "Finale"]
+    }
+
     # Simulationen
     for _ in range(n_sims):
         group_standings = _simulate_groups(fixtures)
@@ -220,7 +233,14 @@ def run(
                 reach_count[t]["Gruppenphase bestehen"] += 1
 
         # K.o.-Phase simulieren
-        ko_results, champion = _simulate_knockout(group_standings)
+        ko_results, champion, opponents_map = _simulate_knockout(group_standings)
+
+        # Gegner erfassen
+        for t, round_opps in opponents_map.items():
+            for round_name, opp in round_opps.items():
+                if round_name in opponent_counts:
+                    opp_dict = opponent_counts[round_name][t]
+                    opp_dict[opp] = opp_dict.get(opp, 0) + 1
 
         for round_name, winners in ko_results.items():
             for w in winners:
@@ -265,6 +285,22 @@ def run(
             f"Erwartete Runde: {expected_round}."
         )
 
+        # Wahrscheinlichste Gegner in jeder K.o.-Runde ermitteln
+        most_probable_opponents = {}
+        for r in ["Round of 32", "Round of 16", "Viertelfinale", "Halbfinale", "Finale"]:
+            opp_dict = opponent_counts.get(r, {}).get(fixture_name, {})
+            if opp_dict:
+                sorted_opps = sorted(opp_dict.items(), key=lambda x: x[1], reverse=True)
+                total_round_reached = sum(opp_dict.values())
+                most_probable_opponents[r] = [
+                    {
+                        "team": opp,
+                        "probability": round(count / total_round_reached, 4),
+                        "percent": f"{(count / total_round_reached) * 100:.1f}%",
+                    }
+                    for opp, count in sorted_opps[:3]
+                ]
+
         return {
             "team": fixture_name,
             "elo": elo_val,
@@ -273,6 +309,7 @@ def run(
             "expected_round": expected_round,
             "bar_chart": "\n".join(bar_lines),
             "summary": summary,
+            "most_probable_opponents": most_probable_opponents,
         }
 
     else:

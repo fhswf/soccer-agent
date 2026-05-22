@@ -140,6 +140,12 @@ def simulate(
         rprint(res['summary'])
         rprint("\n[bold cyan]Wahrscheinlichkeiten pro Runde:[/bold cyan]")
         rprint(res['bar_chart'])
+        
+        if "most_probable_opponents" in res and res["most_probable_opponents"]:
+            rprint("\n[bold cyan]Wahrscheinlichste Gegner in der K.o.-Phase (falls erreicht):[/bold cyan]")
+            for r, opps in res["most_probable_opponents"].items():
+                opps_str = ", ".join([f"{o['team']} ({o['percent']})" for o in opps])
+                rprint(f"  {r:<15}: {opps_str}")
     else:
         rprint(f"\n[bold green]Top-{top_n} Weltmeister-Chancen:[/bold green]")
         rprint(res['bar_chart'])

@@ -39,6 +39,10 @@ dev = [
 # Haupteinstiegspunkt: uv run wm
 wm = "cli:app"
 
+[tool.setuptools]
+packages = []
+py-modules = ["cli"]
+
 [tool.ruff]
 line-length = 100
 target-version = "py311"
