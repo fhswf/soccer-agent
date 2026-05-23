@@ -16,9 +16,9 @@ WORKDIR /app
 # uv installieren
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 
-# Abhängigkeiten (Layer-Caching)
 COPY pyproject.toml .
-RUN uv pip install --system --no-cache -r pyproject.toml
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv pip install --system -r pyproject.toml
 
 # Quellcode
 COPY mcp-server/ ./mcp-server/

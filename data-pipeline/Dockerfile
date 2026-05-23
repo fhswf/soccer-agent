@@ -16,14 +16,9 @@ WORKDIR /app
 # uv installieren (schnelles Python-Paketmanagement)
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 
-# Abhängigkeiten zuerst (Layer-Caching)
 COPY pyproject.toml .
-RUN uv pip install --system --no-cache \
-    openai \
-    chromadb \
-    qdrant-client \
-    pyyaml \
-    python-dotenv
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv pip install --system -r pyproject.toml
 
 # Quellcode
 COPY data-pipeline/ ./data-pipeline/
