@@ -1,6 +1,6 @@
 [project]
 name = "soccer-agent"
-version = "0.4.1"
+version = "0.5.0"
 description = "KI-Trainer 2026: WM-Experten-Agent für den Workshop"
 requires-python = ">=3.11"
 

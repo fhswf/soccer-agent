@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.5.0](https://github.com/fhswf/soccer-agent/compare/soccer-agent-v0.4.1...soccer-agent-v0.5.0) (2026-05-23)
+
+
+### Features
+
+* implement bracket-based knockout simulation using dynamic fixture placeholders ([9cf98a4](https://github.com/fhswf/soccer-agent/commit/9cf98a443a3b52d2686e6c5ff37deea482297a48))
+* implement dynamic three-way match simulation using Elo-based probabilities for win, loss, and draw outcomes ([3435b86](https://github.com/fhswf/soccer-agent/commit/3435b86d58a2a60edf6e1944d9f3f2723dee4b06))
+
+
+### Bug Fixes
+
+* localize tournament round names to German in simulation tool ([d450b03](https://github.com/fhswf/soccer-agent/commit/d450b0397ca0d4dd064637f756fac5d3debffc5f))
+* update docker login secret reference to use GITHUB_TOKEN ([78027ad](https://github.com/fhswf/soccer-agent/commit/78027ad9f8e53789519637a2741c613d88772578))
+
 ## [0.4.1](https://github.com/fhswf/soccer-agent/compare/soccer-agent-v0.4.0...soccer-agent-v0.4.1) (2026-05-23)
 
 
