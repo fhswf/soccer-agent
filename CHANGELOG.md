@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/fhswf/soccer-agent/compare/soccer-agent-v0.4.0...soccer-agent-v0.4.1) (2026-05-23)
+
+
+### Bug Fixes
+
+* disable DNS rebinding protection and bump project version to 0.4.0 ([4bc09ca](https://github.com/fhswf/soccer-agent/commit/4bc09ca9c18557034214bbeaaa419e95bde64de8))
+
 ## [0.4.0](https://github.com/fhswf/soccer-agent/compare/soccer-agent-v0.3.0...soccer-agent-v0.4.0) (2026-05-23)
 
 
