@@ -295,6 +295,55 @@ ROUNDS_ORDER = [
 ]
 
 
+def _get_polymarket_odds() -> dict[str, float]:
+    """
+    Fragt die Polymarket Gamma API nach den aktuellen Siegwahrscheinlichkeiten der WM 2026 ab.
+    Gibt ein Mapping von Teamname -> Wahrscheinlichkeit zurück.
+    """
+    import httpx
+    import json
+    try:
+        url = "https://gamma-api.polymarket.com/public-search"
+        params = {"q": "2026 FIFA World Cup Winner", "keep_closed_markets": 1}
+        response = httpx.get(url, params=params, timeout=3.0)
+        if response.status_code != 200:
+            return {}
+            
+        data = response.json()
+        events = data.get("events", [])
+        if not events:
+            return {}
+            
+        target_event = None
+        for e in events:
+            if "2026 FIFA World Cup Winner" in e.get("title", ""):
+                target_event = e
+                break
+        if not target_event:
+            target_event = events[0]
+            
+        odds: dict[str, float] = {}
+        for m in target_event.get("markets", []):
+            question = m.get("question", "")
+            prices = m.get("outcomePrices")
+            if "Will " in question and " win the" in question:
+                start_idx = question.find("Will ") + 5
+                end_idx = question.find(" win the")
+                raw_team = question[start_idx:end_idx].strip()
+                
+                if isinstance(prices, str):
+                    prices = json.loads(prices)
+                    
+                if prices and len(prices) >= 2:
+                    prob = float(prices[0])
+                    resolved = resolve_team_fixture_name(raw_team)
+                    if resolved:
+                        odds[resolved] = prob
+        return odds
+    except Exception:
+        return {}
+
+
 def run(
     team: str | None = None,
     n_sims: int = 10_000,
@@ -387,11 +436,16 @@ def run(
             if p[r] >= 0.5:
                 expected_round = r
 
+        # Polymarket-Quoten abrufen
+        polymarket_odds = _get_polymarket_odds()
+        poly_p = polymarket_odds.get(fixture_name)
+        poly_str = f", Weltmeister (Polymarket): {poly_p*100:.1f}%" if poly_p is not None else ""
+
         summary = (
             f"{fixture_name} (ELO {elo_val}) hat in {n_sims:,} Simulationen folgende Chancen: "
             f"Gruppenphase bestehen: {p['Gruppenphase bestehen']*100:.1f}%, "
             f"Viertelfinale: {p['Viertelfinale']*100:.1f}%, "
-            f"Weltmeister: {p['Weltmeister']*100:.1f}%. "
+            f"Weltmeister (ELO-Sim): {p['Weltmeister']*100:.1f}%{poly_str}. "
             f"Erwartete Runde: {expected_round}."
         )
 
@@ -419,10 +473,15 @@ def run(
             "expected_round": expected_round,
             "bar_chart": "\n".join(bar_lines),
             "summary": summary,
+            "polymarket_probability": round(poly_p, 4) if poly_p is not None else None,
+            "polymarket_percent": f"{poly_p*100:.1f}%" if poly_p is not None else "N/A",
             "most_probable_opponents": most_probable_opponents,
         }
 
     else:
+        # Polymarket-Quoten abrufen
+        polymarket_odds = _get_polymarket_odds()
+
         # Alle Teams: Top-N nach Weltmeister-Wahrscheinlichkeit
         world_probs = sorted(
             [(t, probs[t]["Weltmeister"]) for t in all_teams],
@@ -430,16 +489,28 @@ def run(
             reverse=True,
         )
         top_teams = world_probs[:top_n]
-        bar_lines = [
-            f"{i+1:2d}. {t:<22} {_make_bar(p, 25)} {p*100:5.1f}%"
-            for i, (t, p) in enumerate(top_teams)
-        ]
+        
+        bar_lines = []
+        for i, (t, p) in enumerate(top_teams):
+            poly_p = polymarket_odds.get(t)
+            poly_str = f" | Polymarket: {poly_p*100:5.1f}%" if poly_p is not None else ""
+            bar_lines.append(
+                f"{i+1:2d}. {t:<22} {_make_bar(p, 20)} ELO-Sim: {p*100:5.1f}%{poly_str}"
+            )
+            
         return {
             "n_simulations": n_sims,
             "world_cup_winner_odds": [
-                {"rank": i + 1, "team": t, "probability": round(p, 4), "percent": f"{p*100:.1f}%"}
+                {
+                    "rank": i + 1,
+                    "team": t,
+                    "probability": round(p, 4),
+                    "percent": f"{p*100:.1f}%",
+                    "polymarket_probability": round(poly_p, 4) if poly_p is not None else None,
+                    "polymarket_percent": f"{poly_p*100:.1f}%" if poly_p is not None else "N/A"
+                }
                 for i, (t, p) in enumerate(top_teams)
             ],
             "bar_chart": "\n".join(bar_lines),
-            "note": f"Basierend auf {n_sims:,} Monte-Carlo-Simulationen mit ELO-Ratings von eloratings.net",
+            "note": f"Basierend auf {n_sims:,} Monte-Carlo-Simulationen mit ELO-Ratings und Live-Odds von Polymarket",
         }
