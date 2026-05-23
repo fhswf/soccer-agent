@@ -141,54 +141,141 @@ def _get_best_thirds(group_standings: dict[str, list[str]]) -> list[str]:
     return [t for t, _ in thirds[:8]]
 
 
+def _resolve_team_placeholder(
+    placeholder: str,
+    qualifiers: dict[str, str],
+    match_results: dict[str, dict[str, str]],
+) -> str:
+    """Löst Platzhalter wie '1A', '2B', 'W73' oder 'L101' in Teamnamen auf."""
+    if not placeholder:
+        return ""
+    if placeholder.startswith("W"):
+        match_num = placeholder[1:]
+        return match_results.get(match_num, {}).get("winner", "")
+    elif placeholder.startswith("L"):
+        match_num = placeholder[1:]
+        return match_results.get(match_num, {}).get("loser", "")
+    else:
+        return qualifiers.get(placeholder, "")
+
+
 def _simulate_knockout(
     group_standings: dict[str, list[str]]
 ) -> tuple[dict[str, list[str]], str, dict[str, dict[str, str]]]:
     """
-    Simuliert die K.o.-Phase (Round of 32 → Finale).
+    Simuliert die K.o.-Phase (Round of 32 → Finale) basierend auf den Spielpaarungen in fixtures.json.
     Gibt zurück: (champions, world_champion, opponents_map)
     """
-    # Qualifikanten aufbauen
-    # Gruppensieger (1.) und Zweite (2.) qualifizieren sich automatisch
     qualifiers: dict[str, str] = {}
+
+    # 1. Gruppensieger und Zweite qualifizieren sich automatisch
     for g, standings in group_standings.items():
         letter = g.split()[-1]  # "Group E" → "E"
         qualifiers[f"1{letter}"] = standings[0]
         qualifiers[f"2{letter}"] = standings[1]
 
+    # 2. Gruppendritte zuweisen
+    team_group: dict[str, str] = {}
+    for g, standings in group_standings.items():
+        group_letter = g.split()[-1]
+        for t in standings:
+            team_group[t] = group_letter
+
     best_thirds = _get_best_thirds(group_standings)
-    for i, t in enumerate(best_thirds):
-        qualifiers[f"3rd_{i}"] = t
+    assigned_thirds: set[str] = set()
 
-    # Vereinfachte Round of 32: 32 Teams spielen 16 Spiele
-    # Wir paaren die 12 Gruppensieger + 12 Gruppenzweiten + 8 Dritte
-    round32_teams = (
-        [group_standings[g][0] for g in group_standings]  # 12 Sieger
-        + [group_standings[g][1] for g in group_standings]  # 12 Zweite
-        + best_thirds  # 8 Dritte
-    )
-    random.shuffle(round32_teams)  # Vereinfachung: zufällige Paarungen ab Round of 32
+    third_place_placeholders = [
+        "3A/B/C/D/F",
+        "3C/D/F/G/H",
+        "3C/E/F/H/I",
+        "3E/H/I/J/K",
+        "3B/E/F/I/J",
+        "3A/E/H/I/J",
+        "3E/F/G/I/J",
+        "3D/E/I/J/L",
+    ]
 
-    current_round = round32_teams
-    round_names = ["Round of 32", "Round of 16", "Viertelfinale", "Halbfinale", "Finale"]
-    champions: dict[str, list[str]] = {r: [] for r in round_names}
+    for ph in third_place_placeholders:
+        allowed_letters = ph[1:].split("/")
+        assigned_team = None
+        for t in best_thirds:
+            if t not in assigned_thirds:
+                g_letter = team_group.get(t)
+                if g_letter in allowed_letters:
+                    assigned_team = t
+                    break
+
+        if not assigned_team:
+            for t in best_thirds:
+                if t not in assigned_thirds:
+                    assigned_team = t
+                    break
+
+        if assigned_team:
+            qualifiers[ph] = assigned_team
+            assigned_thirds.add(assigned_team)
+
+    # 3. Vorbereitung der Ergebnisse
+    round32_teams = list(qualifiers.values())
     opponents_map: dict[str, dict[str, str]] = {t: {} for t in round32_teams}
 
-    for round_name in round_names:
-        next_round: list[str] = []
-        if len(current_round) < 2:
-            break
-        for i in range(0, len(current_round) - 1, 2):
-            t1 = current_round[i]
-            t2 = current_round[i + 1]
-            opponents_map[t1][round_name] = t2
-            opponents_map[t2][round_name] = t1
-            winner = _simulate_match(t1, t2, knockout=True)
-            next_round.append(winner)
-            champions[round_name].append(winner)
-        current_round = next_round
+    round_mapping = {
+        "Round of 32": "Round of 32",
+        "Round of 16": "Round of 16",
+        "Quarter-final": "Viertelfinale",
+        "Semi-final": "Halbfinale",
+        "Final": "Finale",
+    }
 
-    world_champion = current_round[0] if current_round else ""
+    champions: dict[str, list[str]] = {
+        "Round of 32": [],
+        "Round of 16": [],
+        "Viertelfinale": [],
+        "Halbfinale": [],
+        "Finale": [],
+    }
+
+    fixtures = get_fixtures()
+    knockout_matches = fixtures.get("knockout", [])
+    match_results: dict[str, dict[str, str]] = {}
+    world_champion = ""
+
+    for m in knockout_matches:
+        round_name = m["round"]
+        if round_name == "Match for third place":
+            continue
+
+        t1_placeholder = m["team1"]
+        t2_placeholder = m["team2"]
+
+        t1 = _resolve_team_placeholder(t1_placeholder, qualifiers, match_results)
+        t2 = _resolve_team_placeholder(t2_placeholder, qualifiers, match_results)
+
+        if not t1 or not t2:
+            continue
+
+        if t1 not in opponents_map:
+            opponents_map[t1] = {}
+        if t2 not in opponents_map:
+            opponents_map[t2] = {}
+
+        mapped_round = round_mapping.get(round_name)
+        if mapped_round:
+            opponents_map[t1][mapped_round] = t2
+            opponents_map[t2][mapped_round] = t1
+
+        winner = _simulate_match(t1, t2, knockout=True)
+        loser = t2 if winner == t1 else t1
+
+        num = m.get("num")
+        if num is not None:
+            match_results[str(num)] = {"winner": winner, "loser": loser}
+
+        if mapped_round:
+            champions[mapped_round].append(winner)
+
+        if round_name == "Final":
+            world_champion = winner
     return champions, world_champion, opponents_map
 
 
@@ -261,10 +348,18 @@ def run(
                     opp_dict = opponent_counts[round_name][t]
                     opp_dict[opp] = opp_dict.get(opp, 0) + 1
 
-        for round_name, winners in ko_results.items():
-            for w in winners:
-                if round_name in reach_count.get(w, {}):
-                    reach_count[w][round_name] += 1
+        # Zählen der erreichten Runden
+        for t in opponents_map.keys():
+            reach_count[t]["Round of 32"] += 1
+
+        for w in ko_results["Round of 32"]:
+            reach_count[w]["Round of 16"] += 1
+        for w in ko_results["Round of 16"]:
+            reach_count[w]["Viertelfinale"] += 1
+        for w in ko_results["Viertelfinale"]:
+            reach_count[w]["Halbfinale"] += 1
+        for w in ko_results["Halbfinale"]:
+            reach_count[w]["Finale"] += 1
 
         if champion:
             reach_count[champion]["Weltmeister"] += 1
