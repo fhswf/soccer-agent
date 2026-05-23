@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.0](https://github.com/fhswf/soccer-agent/compare/soccer-agent-v0.3.0...soccer-agent-v0.4.0) (2026-05-23)
+
+
+### Features
+
+* add ROOT_PATH configuration to MCP server for deployment behind reverse proxy ([161c9cb](https://github.com/fhswf/soccer-agent/commit/161c9cb41a29cf96315116ac31700d59a110dd07))
+* integrate FastMCP into FastAPI server and update ingress routes to support native MCP endpoints ([54917d1](https://github.com/fhswf/soccer-agent/commit/54917d1693b555e4a1fa4368dc779d4ea2aac5fe))
+
 ## [0.3.0](https://github.com/fhswf/soccer-agent/compare/soccer-agent-v0.2.0...soccer-agent-v0.3.0) (2026-05-23)
 
 
