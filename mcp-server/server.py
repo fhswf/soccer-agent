@@ -108,10 +108,13 @@ TOOLS: dict[str, dict] = {
 # FastAPI App
 # ---------------------------------------------------------------------------
 
+ROOT_PATH = os.environ.get("ROOT_PATH", "")
+
 app = FastAPI(
     title="WM-2026 MCP-Server",
     description="Model Context Protocol Server für den KI-Trainer-2026-Workshop",
     version="0.1.0",
+    root_path=ROOT_PATH,
 )
 
 app.add_middleware(
