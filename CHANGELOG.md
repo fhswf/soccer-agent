@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/fhswf/soccer-agent/compare/soccer-agent-v0.5.0...soccer-agent-v0.6.0) (2026-05-23)
+
+
+### Features
+
+* fetch and display live Polymarket odds in tournament simulation ([4a8dbaa](https://github.com/fhswf/soccer-agent/commit/4a8dbaa5334bbd9f877f1034f64a3e49c5a684b1))
+
 ## [0.5.0](https://github.com/fhswf/soccer-agent/compare/soccer-agent-v0.4.1...soccer-agent-v0.5.0) (2026-05-23)
 
 
