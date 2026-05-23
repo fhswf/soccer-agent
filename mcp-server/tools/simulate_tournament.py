@@ -52,27 +52,46 @@ def _win_prob(elo_a: int, elo_b: int) -> float:
 
 
 def _simulate_match(t1: str, t2: str, knockout: bool = False) -> str:
-    """Simuliert ein einzelnes Spiel. Gibt Sieger zurück."""
+    """Simuliert ein Match basierend auf Elo-Werten."""
     elo1 = _FIXTURE_ELO.get(t1, 1500)
     elo2 = _FIXTURE_ELO.get(t2, 1500)
-    p1 = _win_prob(elo1, elo2)
+    
+    # 1. Standard-Elo-Erwartungswert für Team 1
+    # (Beinhaltet Sieg + 0.5 * Unentschieden)
+    exp_1 = 1 / (10 ** (-(elo1 - elo2) / 400) + 1)
+    
+    # 2. Dynamische Remisbreite bestimmen (sinkt bei großer Elo-Differenz)
+    draw_prob = max(0.05, 0.26 * (1 - abs(elo1 - elo2) / 800))
+    
+    # 3. Echte Drei-Weg-Wahrscheinlichkeiten ableiten
+    # Wir ziehen die halbe Remis-Chance fair von beiden Seiten ab
+    win_prob_1 = max(0.0, exp_1 - (draw_prob / 2))
+    win_prob_2 = max(0.0, (1 - exp_1) - (draw_prob / 2))
+    
+    # Normalisieren, falls durch Rundung/Grenzen minimale Abweichungen entstehen
+    total = win_prob_1 + win_prob_2 + draw_prob
+    p_t1 = win_prob_1 / total
+    p_draw = draw_prob / total
 
+    # 4. Würfeln
     r = random.random()
+    
     if knockout:
-        # K.o.: Unentschieden → Elfmeter (zufällig 50:50)
-        draw_prob = max(0.05, 0.26 * (1 - abs(elo1 - elo2) / 800))
-        if r < p1 * (1 - draw_prob):
+        # K.o.-Spiel: Bei Remis entscheidet das Elfmeterschießen (50:50)
+        if r < p_t1:
             return t1
-        elif r < (p1 + (1 - p1)) * (1 - draw_prob):
-            return t2 if r > p1 * (1 - draw_prob) else t1
-        else:
+        elif r < p_t1 + p_draw:
             return t1 if random.random() < 0.5 else t2
+        else:
+            return t2
     else:
-        # Gruppe: Unentschieden möglich
-        draw_prob = max(0.05, 0.26 * (1 - abs(elo1 - elo2) / 800))
-        if r < draw_prob:
+        # Gruppenspiel: Unentschieden ist ein gültiges Ergebnis
+        if r < p_t1:
+            return t1
+        elif r < p_t1 + p_draw:
             return "draw"
-        return t1 if r < draw_prob + p1 * (1 - draw_prob) else t2
+        else:
+            return t2
 
 
 def _simulate_groups(fixtures: dict) -> dict[str, list[str]]:
