@@ -11,5 +11,5 @@ resources:
 
 images:
   - name: ghcr.io/fhswf/soccer-agent/mcp-server
-    newTag: sha-e8c9d08 # x-release-please-version
+    newTag: 0.4.1 # x-release-please-version
 
