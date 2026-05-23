@@ -110,6 +110,7 @@ TOOLS: dict[str, dict] = {
 from mcp.server.fastmcp import FastMCP
 
 mcp_server = FastMCP("WM-2026-Server")
+mcp_server.settings.transport_security.enable_dns_rebinding_protection = False
 
 @mcp_server.tool(name="get_matches", description="Gibt alle Spiele eines Teams oder einer Gruppe zurück.")
 def tool_get_matches(
