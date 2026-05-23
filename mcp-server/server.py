@@ -105,16 +105,85 @@ TOOLS: dict[str, dict] = {
 
 
 # ---------------------------------------------------------------------------
+# Standard MCP Server (FastMCP)
+# ---------------------------------------------------------------------------
+from mcp.server.fastmcp import FastMCP
+
+mcp_server = FastMCP("WM-2026-Server")
+
+@mcp_server.tool(name="get_matches", description="Gibt alle Spiele eines Teams oder einer Gruppe zurück.")
+def tool_get_matches(
+    team: str | None = None,
+    group: str | None = None,
+    round_filter: str | None = None,
+) -> dict:
+    return get_matches.run(team=team, group=group, round_filter=round_filter)
+
+@mcp_server.tool(name="get_opponents", description="Gibt die Gruppenphase-Gegner eines Teams mit ELO-Stärke zurück.")
+def tool_get_opponents(
+    team: str,
+) -> dict:
+    return get_opponents.run(team=team)
+
+@mcp_server.tool(name="get_team_elo", description="ELO-Rating, Weltrang, historische Entwicklung und Bilanz eines Teams.")
+def tool_get_team_elo(
+    team: str,
+) -> dict:
+    return get_team_elo.run(team=team)
+
+@mcp_server.tool(name="compare_teams", description="Vergleicht zwei Teams per ELO und berechnet Siegwahrscheinlichkeiten.")
+def tool_compare_teams(
+    team1: str,
+    team2: str,
+) -> dict:
+    return compare_teams.run(team1=team1, team2=team2)
+
+@mcp_server.tool(name="get_elo_trend", description="ELO-Entwicklung eines Teams über 1 und 3 Jahre mit Trendeinschätzung.")
+def tool_get_elo_trend(
+    team: str,
+) -> dict:
+    return get_elo_trend.run(team=team)
+
+@mcp_server.tool(name="simulate_tournament", description="Monte-Carlo-Simulation der WM 2026.")
+def tool_simulate_tournament(
+    team: str | None = None,
+    n_sims: int = 10000,
+    home_boost: int = 50,
+    top_n: int = 10,
+) -> dict:
+    return simulate_tournament.run(
+        team=team,
+        n_sims=n_sims,
+        home_boost=home_boost,
+        top_n=top_n,
+    )
+
+@mcp_server.tool(name="search_news", description="Sucht aktuelle WM-2026-Nachrichten über DuckDuckGo.")
+def tool_search_news(
+    query: str,
+    max_results: int = 5,
+) -> dict:
+    return search_news.run(query=query, max_results=max_results)
+
+
+# ---------------------------------------------------------------------------
 # FastAPI App
 # ---------------------------------------------------------------------------
 
-ROOT_PATH = os.environ.get("ROOT_PATH", "")
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Streamable HTTP App initialisieren, um den session_manager zu erstellen
+    mcp_server.streamable_http_app()
+    async with mcp_server.session_manager.run():
+        yield
 
 app = FastAPI(
     title="WM-2026 MCP-Server",
     description="Model Context Protocol Server für den KI-Trainer-2026-Workshop",
     version="0.1.0",
-    root_path=ROOT_PATH,
+    lifespan=lifespan,
 )
 
 app.add_middleware(
@@ -267,3 +336,9 @@ def api_search_news(
         return search_news.run(query=query, max_results=max_results)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+# ---------------------------------------------------------------------------
+# Standard MCP Streamable HTTP App Mounten
+# ---------------------------------------------------------------------------
+app.mount("/", mcp_server.streamable_http_app())

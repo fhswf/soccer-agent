@@ -26,8 +26,6 @@ spec:
               value: "/app/data-pipeline/data"
             - name: PORT
               value: "9000"
-            - name: ROOT_PATH
-              value: "/mcp"
           resources:
             limits:
               cpu: 500m

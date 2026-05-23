@@ -8,7 +8,6 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls.certresolver: myresolver
     traefik.ingress.kubernetes.io/router.tls: 'true'
-    traefik.ingress.kubernetes.io/router.middlewares: soccer-agent-strip-mcp-prefix@kubernetescrd
 spec:
   tls:
     - hosts:
@@ -24,6 +23,27 @@ spec:
                 name: langflow
                 port:
                   number: 7860
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: mcp-server
+                port:
+                  number: 9000
+          - path: /docs
+            pathType: Prefix
+            backend:
+              service:
+                name: mcp-server
+                port:
+                  number: 9000
+          - path: /openapi.json
+            pathType: Prefix
+            backend:
+              service:
+                name: mcp-server
+                port:
+                  number: 9000
           - path: /mcp
             pathType: Prefix
             backend:
