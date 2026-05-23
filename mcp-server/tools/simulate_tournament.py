@@ -220,16 +220,16 @@ def _simulate_knockout(
     opponents_map: dict[str, dict[str, str]] = {t: {} for t in round32_teams}
 
     round_mapping = {
-        "Round of 32": "Round of 32",
-        "Round of 16": "Round of 16",
+        "Round of 32": "Sechzehntelfinale",
+        "Round of 16": "Achtelfinale",
         "Quarter-final": "Viertelfinale",
         "Semi-final": "Halbfinale",
         "Final": "Finale",
     }
 
     champions: dict[str, list[str]] = {
-        "Round of 32": [],
-        "Round of 16": [],
+        "Sechzehntelfinale": [],
+        "Achtelfinale": [],
         "Viertelfinale": [],
         "Halbfinale": [],
         "Finale": [],
@@ -287,8 +287,7 @@ def _make_bar(prob: float, width: int = 20) -> str:
 
 ROUNDS_ORDER = [
     "Gruppenphase bestehen",
-    "Round of 32",
-    "Round of 16",
+    "Achtelfinale",
     "Viertelfinale",
     "Halbfinale",
     "Finale",
@@ -325,7 +324,7 @@ def run(
     # round_name -> team_name -> opponent -> count
     opponent_counts: dict[str, dict[str, dict[str, int]]] = {
         r: {t: {} for t in all_teams}
-        for r in ["Round of 32", "Round of 16", "Viertelfinale", "Halbfinale", "Finale"]
+        for r in ["Sechzehntelfinale", "Achtelfinale", "Viertelfinale", "Halbfinale", "Finale"]
     }
 
     # Simulationen
@@ -349,12 +348,9 @@ def run(
                     opp_dict[opp] = opp_dict.get(opp, 0) + 1
 
         # Zählen der erreichten Runden
-        for t in opponents_map.keys():
-            reach_count[t]["Round of 32"] += 1
-
-        for w in ko_results["Round of 32"]:
-            reach_count[w]["Round of 16"] += 1
-        for w in ko_results["Round of 16"]:
+        for w in ko_results["Sechzehntelfinale"]:
+            reach_count[w]["Achtelfinale"] += 1
+        for w in ko_results["Achtelfinale"]:
             reach_count[w]["Viertelfinale"] += 1
         for w in ko_results["Viertelfinale"]:
             reach_count[w]["Halbfinale"] += 1
@@ -401,7 +397,7 @@ def run(
 
         # Wahrscheinlichste Gegner in jeder K.o.-Runde ermitteln
         most_probable_opponents = {}
-        for r in ["Round of 32", "Round of 16", "Viertelfinale", "Halbfinale", "Finale"]:
+        for r in ["Sechzehntelfinale", "Achtelfinale", "Viertelfinale", "Halbfinale", "Finale"]:
             opp_dict = opponent_counts.get(r, {}).get(fixture_name, {})
             if opp_dict:
                 sorted_opps = sorted(opp_dict.items(), key=lambda x: x[1], reverse=True)
