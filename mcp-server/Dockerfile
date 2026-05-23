@@ -18,12 +18,7 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 
 # Abhängigkeiten (Layer-Caching)
 COPY pyproject.toml .
-RUN uv pip install --system --no-cache \
-    fastapi \
-    "uvicorn[standard]" \
-    httpx \
-    duckduckgo-search \
-    pydantic
+RUN uv pip install --system --no-cache -r pyproject.toml
 
 # Quellcode
 COPY mcp-server/ ./mcp-server/
