@@ -23,6 +23,23 @@ from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
+# Tools statisch importieren für API-Endpoints
+from tools import (
+    get_matches,
+    get_opponents,
+    get_team_elo,
+    compare_teams,
+    get_elo_trend,
+    simulate_tournament,
+    search_news,
+)
+
+class SimulateTournamentRequest(BaseModel):
+    team: str | None = None
+    n_sims: int = 10000
+    home_boost: int = 50
+    top_n: int = 10
+
 # Tools registrieren
 TOOLS: dict[str, dict] = {
     "get_matches": {
@@ -164,3 +181,86 @@ def call_tool(request: ToolCallRequest) -> dict:
             status_code=500,
             detail=f"Tool-Fehler: {e}\n{traceback.format_exc()}",
         )
+
+
+# ---------------------------------------------------------------------------
+# Direct REST API Endpoints & Swagger UI
+# ---------------------------------------------------------------------------
+
+@app.get("/api/matches", tags=["Direct API Tools"], summary="Gibt alle Spiele eines Teams oder einer Gruppe zurück.")
+def api_get_matches(
+    team: str | None = None,
+    group: str | None = None,
+    round_filter: str | None = None,
+) -> dict:
+    try:
+        return get_matches.run(team=team, group=group, round_filter=round_filter)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/opponents", tags=["Direct API Tools"], summary="Gibt die Gruppenphase-Gegner eines Teams mit ELO-Stärke zurück.")
+def api_get_opponents(
+    team: str,
+) -> dict:
+    try:
+        return get_opponents.run(team=team)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/team_elo", tags=["Direct API Tools"], summary="ELO-Rating, Weltrang, historische Entwicklung und Bilanz eines Teams.")
+def api_get_team_elo(
+    team: str,
+) -> dict:
+    try:
+        return get_team_elo.run(team=team)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/compare_teams", tags=["Direct API Tools"], summary="Vergleicht zwei Teams per ELO und berechnet Siegwahrscheinlichkeiten.")
+def api_compare_teams(
+    team1: str,
+    team2: str,
+) -> dict:
+    try:
+        return compare_teams.run(team1=team1, team2=team2)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/elo_trend", tags=["Direct API Tools"], summary="ELO-Entwicklung eines Teams über 1 und 3 Jahre mit Trendeinschätzung.")
+def api_get_elo_trend(
+    team: str,
+) -> dict:
+    try:
+        return get_elo_trend.run(team=team)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/simulate_tournament", tags=["Direct API Tools"], summary="Monte-Carlo-Simulation der WM 2026.")
+def api_simulate_tournament(
+    req: SimulateTournamentRequest,
+) -> dict:
+    try:
+        return simulate_tournament.run(
+            team=req.team,
+            n_sims=req.n_sims,
+            home_boost=req.home_boost,
+            top_n=req.top_n,
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/search_news", tags=["Direct API Tools"], summary="Sucht aktuelle WM-2026-Nachrichten über DuckDuckGo.")
+def api_search_news(
+    query: str,
+    max_results: int = 5,
+) -> dict:
+    try:
+        return search_news.run(query=query, max_results=max_results)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
