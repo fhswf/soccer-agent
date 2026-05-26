@@ -58,10 +58,23 @@ def fetch(
 
 
 @app.command()
+def scrape(
+    max_results: int = typer.Option(10, "--max-results", "-n", help="Maximale Anzahl an News"),
+) -> None:
+    """🌐 Offizielle WM-2026-Nachrichten von FIFA.com scrapen."""
+    if not isinstance(max_results, int):
+        max_results = 10
+    console.rule("[bold blue]Schritt 2: Offizielle FIFA-News scrapen")
+    with console.status("Scrape offizielle Ankündigungen von FIFA.com …"):
+        _run_script("data-pipeline/scrape_news.py", extra_args=["--max-results", str(max_results)])
+    rprint("[green]✅ Offizielle FIFA-News erfolgreich gescrapet![/green]")
+
+
+@app.command()
 def clean() -> None:
     """🔧 Daten bereinigen und in Chunks aufteilen."""
-    console.rule("[bold blue]Schritt 2: Daten bereinigen")
-    with console.status("Erstelle Text-Chunks aus ELO, Spielplan und Fun-Facts …"):
+    console.rule("[bold blue]Schritt 3: Daten bereinigen")
+    with console.status("Erstelle Text-Chunks aus ELO, Spielplan, News und Fun-Facts …"):
         _run_script("data-pipeline/clean.py")
     rprint("[green]✅ Chunks erstellt![/green]")
 
@@ -73,7 +86,7 @@ def ingest(
     skip_embed: bool = typer.Option(False, "--skip-embed", help="Gespeicherte Embeddings nutzen"),
 ) -> None:
     """🗄️  Chunks in Vektordatenbanken einspeichern (ChromaDB + Qdrant)."""
-    console.rule("[bold blue]Schritt 3: Vektordatenbank befüllen")
+    console.rule("[bold blue]Schritt 4: Vektordatenbank befüllen")
     args: list[str] = []
     if only_chroma:
         args.append("--only-chroma")
@@ -89,9 +102,13 @@ def ingest(
 def pipeline(
     no_cache: bool = typer.Option(False, "--no-cache", help="Daten neu herunterladen"),
 ) -> None:
-    """🚀 Komplette Pipeline: fetch → clean → ingest."""
+    """🚀 Komplette Pipeline: fetch → scrape → clean → ingest."""
     console.rule("[bold yellow]Komplette Datenpipeline starten")
     fetch(no_cache=no_cache)
+    try:
+        scrape(max_results=10)
+    except Exception as e:
+        rprint(f"[bold red]⚠️  Scraping fehlgeschlagen, fahre mit restlicher Pipeline fort: {e}[/bold red]")
     clean()
     ingest()
     rprint("[bold green]✅ Datenpipeline abgeschlossen![/bold green]")
@@ -212,11 +229,15 @@ def info() -> None:
 
 def _run_script(relative_path: str, extra_args: list[str] | None = None) -> None:
     """Führt ein Python-Skript mit dem aktuellen Interpreter aus."""
+    import os
     args = extra_args or []
+    env = os.environ.copy()
+    env["PYTHONWARNINGS"] = "ignore"
     result = subprocess.run(
         [sys.executable, str(ROOT / relative_path), *args],
         check=True,
         capture_output=False,
+        env=env,
     )
 
 

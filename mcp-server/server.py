@@ -32,6 +32,7 @@ from tools import (
     get_elo_trend,
     simulate_tournament,
     search_news,
+    scrape_official_news,
 )
 
 class SimulateTournamentRequest(BaseModel):
@@ -101,6 +102,13 @@ TOOLS: dict[str, dict] = {
         },
         "module": "tools.search_news",
     },
+    "scrape_official_news": {
+        "description": "Scrapt offizielle Nachrichten und Ankündigungen von fifa.com (über DuckDuckGo).",
+        "parameters": {
+            "max_results": {"type": "integer", "description": "Maximale Ergebnisse (Standard: 5)"},
+        },
+        "module": "tools.scrape_official_news",
+    },
 }
 
 
@@ -165,6 +173,12 @@ def tool_search_news(
     max_results: int = 5,
 ) -> dict:
     return search_news.run(query=query, max_results=max_results)
+
+@mcp_server.tool(name="scrape_official_news", description="Scrapt offizielle Nachrichten und Ankündigungen von fifa.com.")
+def tool_scrape_official_news(
+    max_results: int = 5,
+) -> dict:
+    return scrape_official_news.run(max_results=max_results)
 
 
 # ---------------------------------------------------------------------------
@@ -335,6 +349,16 @@ def api_search_news(
 ) -> dict:
     try:
         return search_news.run(query=query, max_results=max_results)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/scrape_official_news", tags=["Direct API Tools"], summary="Scrapt offizielle Nachrichten und Ankündigungen von fifa.com.")
+def api_scrape_official_news(
+    max_results: int = 5,
+) -> dict:
+    try:
+        return scrape_official_news.run(max_results=max_results)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

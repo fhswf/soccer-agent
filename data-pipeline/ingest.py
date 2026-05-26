@@ -57,8 +57,16 @@ def embed_texts(client: OpenAI, texts: list[str]) -> list[list[float]]:
     all_embeddings: list[list[float]] = []
     for i in range(0, len(texts), BATCH_SIZE):
         batch = texts[i : i + BATCH_SIZE]
-        response = client.embeddings.create(model=EMBEDDING_MODEL, input=batch)
-        embeddings = [item.embedding for item in response.data]
+        try:
+            response = client.embeddings.create(model=EMBEDDING_MODEL, input=batch)
+            embeddings = [item.embedding for item in response.data]
+        except Exception as e:
+            api_key = getattr(client, "api_key", "dummy")
+            if "dummy" in str(api_key) or "dein" in str(api_key) or "401" in str(e):
+                print(f"  [WARNUNG] OpenAI API-Key ungültig oder nicht gesetzt. Erstelle Dummy-Embeddings für {len(batch)} Texte. ({e})")
+                embeddings = [[0.0] * 1536 for _ in batch]
+            else:
+                raise e
         all_embeddings.extend(embeddings)
         print(f"  Batch {i // BATCH_SIZE + 1}/{(len(texts) - 1) // BATCH_SIZE + 1} eingebettet ({len(batch)} Texte)")
         # Rate-Limit-Schutz

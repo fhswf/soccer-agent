@@ -193,6 +193,25 @@ def fun_facts_to_chunks(facts: list[dict]) -> list[Chunk]:
 
 
 # ---------------------------------------------------------------------------
+# 4. Offizielle News → Texte
+# ---------------------------------------------------------------------------
+
+def official_news_to_chunks(news_list: list[dict]) -> list[Chunk]:
+    """Wandelt gescrapete FIFA-News in Chunks um."""
+    chunks: list[Chunk] = []
+    for item in news_list:
+        text = f"Offizielle Ankündigung/News zur WM 2026:\n{item['title']}\n\nDetails: {item['snippet']}"
+        chunks.append(Chunk(
+            text=text,
+            source=f"{item['source']} – {item['title']}",
+            source_url=item['url'],
+            data_type="trivia",  # Passt gut in die bestehende Struktur
+            team="",
+        ))
+    return chunks
+
+
+# ---------------------------------------------------------------------------
 # Haupt-Funktion: Alles zusammenführen
 # ---------------------------------------------------------------------------
 
@@ -235,6 +254,21 @@ def build_chunks() -> list[dict]:
         print(f"Fun-Facts-Chunks: {len(fact_chunks)}")
     else:
         print("WARNUNG: fun_facts.yaml nicht gefunden!")
+
+    # Official News
+    news_path = DATA_DIR / "official_news.json"
+    if news_path.exists():
+        try:
+            with open(news_path, encoding="utf-8") as f:
+                news_data = json.load(f)
+            news_chunks = official_news_to_chunks(news_data)
+            all_chunks.extend(news_chunks)
+            print(f"Official News Chunks: {len(news_chunks)}")
+        except Exception as e:
+            print(f"WARNUNG: Fehler beim Laden von official_news.json: {e}")
+    else:
+        print("Official News: official_news.json nicht gefunden – übersprungen.")
+
 
     # Chunk-IDs vergeben
     chunk_dicts = []

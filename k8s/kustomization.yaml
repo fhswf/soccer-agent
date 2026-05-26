@@ -8,6 +8,7 @@ resources:
   - mcp-server-deployment.yaml
   - langflow-deployment.yaml
   - ingress.yaml
+  - news-scraper-cronjob.yaml
 
 images:
   - name: ghcr.io/fhswf/soccer-agent/mcp-server

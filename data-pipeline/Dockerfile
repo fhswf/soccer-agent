@@ -26,11 +26,12 @@ COPY data-pipeline/ ./data-pipeline/
 # Datenpfad
 VOLUME ["/app/data-pipeline/data/chroma"]
 
-# Standardbefehl: Komplette Pipeline (fetch → clean → ingest)
+# Standardbefehl: Komplette Pipeline (fetch → scrape → clean → ingest)
 # Einzelne Schritte über CMD überschreiben:
 #   docker run ... wm2026-pipeline python3 data-pipeline/fetch_elo.py
 CMD ["sh", "-c", \
      "python3 data-pipeline/fetch_elo.py && \
       python3 data-pipeline/fetch_fixtures.py && \
+      python3 data-pipeline/scrape_news.py && \
       python3 data-pipeline/clean.py && \
       python3 data-pipeline/ingest.py"]
