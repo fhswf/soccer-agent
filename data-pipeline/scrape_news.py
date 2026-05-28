@@ -49,7 +49,7 @@ FALLBACK_NEWS = [
 ]
 
 
-def scrape_fifa_news(max_results: int = 10) -> list[dict]:
+def scrape_fifa_news(max_results: int = 40) -> list[dict]:
     """
     Sucht aktuelle Nachrichten und Ankündigungen auf fifa.com über DuckDuckGo.
     Kombiniert deutsche und englische Suchen für bestmögliche Abdeckung.
@@ -112,7 +112,7 @@ def scrape_fifa_news(max_results: int = 10) -> list[dict]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Offizielle FIFA-WM-2026 News und Ankündigungen scrapen")
-    parser.add_argument("--max-results", type=int, default=10, help="Maximale Anzahl der Ergebnisse")
+    parser.add_argument("--max-results", type=int, default=40, help="Maximale Anzahl der Ergebnisse")
     args = parser.parse_args()
 
     console.rule("[bold blue]FIFA World Cup 2026 News Scraper")
