@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.7.0](https://github.com/fhswf/soccer-agent/compare/soccer-agent-v0.6.0...soccer-agent-v0.7.0) (2026-05-28)
+
+
+### Features
+
+* implement automated official FIFA news scraping and integrate into the data pipeline and MCP server. ([069ffd3](https://github.com/fhswf/soccer-agent/commit/069ffd38c57095b6e1f83da694ccd525b78cec7b))
+
+
+### Bug Fixes
+
+* clear global fixture ELO map before rebuilding to prevent stale data accumulation ([283427f](https://github.com/fhswf/soccer-agent/commit/283427f05a7482bd50b1355bf39752618c709225))
+
 ## [0.6.0](https://github.com/fhswf/soccer-agent/compare/soccer-agent-v0.5.0...soccer-agent-v0.6.0) (2026-05-23)
 
 
