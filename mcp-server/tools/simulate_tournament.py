@@ -28,6 +28,7 @@ _HOME_TEAMS = {"US", "CA", "MX"}
 def _build_elo_map(home_boost: int = 50) -> None:
     """Erstellt Fixture-Name → ELO-Mapping."""
     global _FIXTURE_ELO
+    _FIXTURE_ELO.clear()
     fixtures = get_fixtures()
 
     for group_info in fixtures["groups"].values():
