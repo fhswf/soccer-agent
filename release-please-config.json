@@ -6,7 +6,7 @@
       "extra-files": [
         {
           "type": "yaml",
-          "path": "k8s/kustomization.yaml",
+          "path": "/k8s/kustomization.yaml",
           "jsonpath": "$.images[0].newTag"
         }
       ]
@@ -17,7 +17,7 @@
       "extra-files": [
         {
           "type": "yaml",
-          "path": "k8s/kustomization.yaml",
+          "path": "/k8s/kustomization.yaml",
           "jsonpath": "$.images[1].newTag"
         }
       ]
