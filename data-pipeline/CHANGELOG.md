@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/fhswf/soccer-agent/compare/data-pipeline-v1.0.0...data-pipeline-v1.0.1) (2026-05-28)
+
+
+### Bug Fixes
+
+* add release-please triggers to scrape_news.py and server.py ([2963f0f](https://github.com/fhswf/soccer-agent/commit/2963f0f3bf8dca73936317edea8268e2abfb1c0a))
+
 ## 1.0.0 (2026-05-28)
 
 
