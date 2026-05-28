@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.1](https://github.com/fhswf/soccer-agent/compare/mcp-server-v0.8.0...mcp-server-v0.8.1) (2026-05-28)
+
+
+### Bug Fixes
+
+* add release-please triggers to scrape_news.py and server.py ([2963f0f](https://github.com/fhswf/soccer-agent/commit/2963f0f3bf8dca73936317edea8268e2abfb1c0a))
+
 ## [0.8.0](https://github.com/fhswf/soccer-agent/compare/mcp-server-v0.7.0...mcp-server-v0.8.0) (2026-05-28)
 
 

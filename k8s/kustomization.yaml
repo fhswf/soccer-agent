@@ -1,8 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 namespace: soccer-agent
-
 resources:
   - chromadb-deployment.yaml
   - mcp-server-deployment.yaml
@@ -10,9 +8,8 @@ resources:
   - ingress.yaml
   - news-scraper-cronjob.yaml
   - openai-api-key-sealed-secret.yaml
-
 images:
   - name: ghcr.io/fhswf/soccer-agent/mcp-server
-    newTag: 0.7.0 # x-release-please-version
+    newTag: 0.8.1
   - name: ghcr.io/fhswf/soccer-agent/data-pipeline
-    newTag: 0.0.0 # x-release-please-version
+    newTag: 1.0.1
