@@ -145,3 +145,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+# Trigger release-please to update kustomization.yaml
+

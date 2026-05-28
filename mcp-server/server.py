@@ -367,3 +367,6 @@ def api_scrape_official_news(
 # Standard MCP Streamable HTTP App Mounten
 # ---------------------------------------------------------------------------
 app.mount("/", mcp_server.streamable_http_app())
+
+# Trigger release-please to update kustomization.yaml
+
