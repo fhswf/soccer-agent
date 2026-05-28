@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/fhswf/soccer-agent/compare/soccer-agent-v0.7.0...soccer-agent-v0.8.0) (2026-05-28)
+
+
+### Features
+
+* increase default max_results for FIFA news scraping from 10 to 40 ([879c1be](https://github.com/fhswf/soccer-agent/commit/879c1be77fcb38f7be21fa41db21a0e05f4cdd40))
+
 ## [0.7.0](https://github.com/fhswf/soccer-agent/compare/soccer-agent-v0.6.0...soccer-agent-v0.7.0) (2026-05-28)
 
 
