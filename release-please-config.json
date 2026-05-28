@@ -1,10 +1,25 @@
 {
   "packages": {
-    ".": {
-      "release-type": "python",
-      "package-name": "soccer-agent",
+    "mcp-server": {
+      "release-type": "simple",
+      "package-name": "mcp-server",
       "extra-files": [
-        "k8s/kustomization.yaml"
+        {
+          "type": "yaml",
+          "path": "k8s/kustomization.yaml",
+          "jsonpath": "$.images[0].newTag"
+        }
+      ]
+    },
+    "data-pipeline": {
+      "release-type": "simple",
+      "package-name": "data-pipeline",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "k8s/kustomization.yaml",
+          "jsonpath": "$.images[1].newTag"
+        }
       ]
     }
   },

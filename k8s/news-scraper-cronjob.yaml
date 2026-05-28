@@ -14,7 +14,7 @@ spec:
         spec:
           containers:
             - name: scraper-pipeline
-              image: ghcr.io/fhswf/soccer-agent/data-pipeline:latest
+              image: ghcr.io/fhswf/soccer-agent/data-pipeline
               imagePullPolicy: Always
               env:
                 - name: CHROMA_HOST
