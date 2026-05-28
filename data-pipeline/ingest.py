@@ -6,8 +6,8 @@ speichert sie in ChromaDB (primär) und optional Qdrant (sekundär).
 
 Voraussetzungen:
   - OPENAI_API_KEY Umgebungsvariable gesetzt (oder in .env)
-  - ChromaDB läuft auf localhost:8000 (oder als embedded)
-  - Qdrant läuft auf localhost:6333 (optional)
+  - ChromaDB läuft auf chromadb:8000 (oder als embedded)
+  - Qdrant läuft auf qdrant:6333 (optional)
   - data/chunks.json existiert (erst clean.py ausführen)
 
 Aufruf:
@@ -86,7 +86,7 @@ def ingest_chroma(chunks: list[dict], embeddings: list[list[float]]) -> None:
         print("ChromaDB nicht installiert: pip install chromadb")
         return
 
-    chroma_host = os.environ.get("CHROMA_HOST", "localhost")
+    chroma_host = os.environ.get("CHROMA_HOST", "chromadb")
     chroma_port = int(os.environ.get("CHROMA_PORT", "8000"))
 
     try:
@@ -142,7 +142,7 @@ def ingest_qdrant(chunks: list[dict], embeddings: list[list[float]]) -> None:
         print("Qdrant-Client nicht installiert: pip install qdrant-client")
         return
 
-    qdrant_host = os.environ.get("QDRANT_HOST", "localhost")
+    qdrant_host = os.environ.get("QDRANT_HOST", "qdrant")
     qdrant_port = int(os.environ.get("QDRANT_PORT", "6333"))
     vector_size = len(embeddings[0])
 
