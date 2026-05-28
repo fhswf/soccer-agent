@@ -9,6 +9,7 @@ resources:
   - langflow-deployment.yaml
   - ingress.yaml
   - news-scraper-cronjob.yaml
+  - openai-api-key-sealed-secret.yaml
 
 images:
   - name: ghcr.io/fhswf/soccer-agent/mcp-server
