@@ -1,3 +1,6 @@
+<a href="https://www.ki.fh-swf.de/jupyterhub/hub/user-redirect/git-pull?profile=nlp-environment&repo=https%3A%2F%2Fgithub.com%2Ffhswf%2Fsoccer_agent.git&urlpath=lab%2Ftree%2Fsoccer_agent.git%2Fnotebooks&branch=main&profile=nlp-environment" style=""><img src="https://www.ki.fh-swf.de/cluster_badge.svg" style="height: 32px" alt="Open in FH Cluster"></a>
+
+
 # KI-Trainer 2026: Bau deinen eigenen WM-Experten ⚽🤖
 
 Willkommen im Repository zum Schul-Workshop **"KI-Trainer 2026: Bau deinen eigenen WM-Experten"**! 
