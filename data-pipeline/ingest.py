@@ -80,6 +80,10 @@ def embed_texts(client: OpenAI, texts: list[str]) -> list[list[float]]:
 
 def ingest_chroma(chunks: list[dict], embeddings: list[list[float]]) -> None:
     """Speichert Chunks + Embeddings in ChromaDB."""
+    if not chunks:
+        print("  ChromaDB: Keine neuen Chunks hinzuzufügen.")
+        return
+
     try:
         import chromadb
     except ImportError:
@@ -99,14 +103,8 @@ def ingest_chroma(chunks: list[dict], embeddings: list[list[float]]) -> None:
         client = chromadb.PersistentClient(path=str(chroma_dir))
         print(f"ChromaDB: Embedded-Modus (Pfad: {chroma_dir})")
 
-    # Collection löschen und neu erstellen (idempotent)
-    try:
-        client.delete_collection(COLLECTION_NAME)
-        print(f"  Alte Collection '{COLLECTION_NAME}' gelöscht.")
-    except Exception:
-        pass
-
-    collection = client.create_collection(
+    # Collection abrufen oder erstellen
+    collection = client.get_or_create_collection(
         name=COLLECTION_NAME,
         metadata={"hnsw:space": "cosine"},
     )
@@ -126,58 +124,7 @@ def ingest_chroma(chunks: list[dict], embeddings: list[list[float]]) -> None:
             embeddings=embeddings[i : i + BATCH_SIZE],
             metadatas=metadatas[i : i + BATCH_SIZE],
         )
-    print(f"  → {len(chunks)} Chunks in ChromaDB Collection '{COLLECTION_NAME}' gespeichert.")
-
-
-# ---------------------------------------------------------------------------
-# Qdrant
-# ---------------------------------------------------------------------------
-
-def ingest_qdrant(chunks: list[dict], embeddings: list[list[float]]) -> None:
-    """Speichert Chunks + Embeddings in Qdrant."""
-    try:
-        from qdrant_client import QdrantClient
-        from qdrant_client.models import Distance, VectorParams, PointStruct
-    except ImportError:
-        print("Qdrant-Client nicht installiert: pip install qdrant-client")
-        return
-
-    qdrant_host = os.environ.get("QDRANT_HOST", "qdrant")
-    qdrant_port = int(os.environ.get("QDRANT_PORT", "6333"))
-    vector_size = len(embeddings[0])
-
-    try:
-        client = QdrantClient(host=qdrant_host, port=qdrant_port)
-        client.get_collections()  # Verbindungstest
-        print(f"Qdrant: Verbunden mit {qdrant_host}:{qdrant_port}")
-    except Exception as e:
-        print(f"Qdrant nicht erreichbar ({e}) – übersprungen.")
-        return
-
-    # Collection neu erstellen
-    if client.collection_exists(COLLECTION_NAME):
-        client.delete_collection(COLLECTION_NAME)
-    client.create_collection(
-        collection_name=COLLECTION_NAME,
-        vectors_config=VectorParams(size=vector_size, distance=Distance.COSINE),
-    )
-
-    points = [
-        PointStruct(
-            id=i,
-            vector=embeddings[i],
-            payload={
-                "chunk_id": chunks[i]["chunk_id"],
-                "text": chunks[i]["text"],
-                "source": chunks[i]["source"],
-                "data_type": chunks[i]["data_type"],
-                "team": chunks[i]["team"],
-            },
-        )
-        for i in range(len(chunks))
-    ]
-    client.upsert(collection_name=COLLECTION_NAME, points=points)
-    print(f"  → {len(chunks)} Chunks in Qdrant Collection '{COLLECTION_NAME}' gespeichert.")
+    print(f"  → {len(chunks)} neue Chunks in ChromaDB Collection '{COLLECTION_NAME}' gespeichert.")
 
 
 # ---------------------------------------------------------------------------
@@ -185,9 +132,7 @@ def ingest_qdrant(chunks: list[dict], embeddings: list[list[float]]) -> None:
 # ---------------------------------------------------------------------------
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="WM-2026-Chunks in Vektordatenbanken einspeisen")
-    parser.add_argument("--only-chroma", action="store_true", help="Nur ChromaDB befüllen")
-    parser.add_argument("--only-qdrant", action="store_true", help="Nur Qdrant befüllen")
+    parser = argparse.ArgumentParser(description="WM-2026-Chunks in ChromaDB einspeisen")
     parser.add_argument("--skip-embed", action="store_true",
                         help="Embeddings aus embeddings.json laden statt neu berechnen")
     args = parser.parse_args()
@@ -201,30 +146,97 @@ def main() -> None:
         chunks = json.load(f)
     print(f"Geladene Chunks: {len(chunks)}")
 
-    # Embeddings berechnen oder laden
+    # 1. Verbindung zu ChromaDB aufbauen und bereits existierende IDs abfragen
+    existing_ids = set()
+    try:
+        import chromadb
+        chroma_host = os.environ.get("CHROMA_HOST", "chromadb")
+        chroma_port = int(os.environ.get("CHROMA_PORT", "8000"))
+        try:
+            chroma_client = chromadb.HttpClient(host=chroma_host, port=chroma_port)
+        except Exception:
+            chroma_dir = DATA_DIR / "chroma"
+            chroma_client = chromadb.PersistentClient(path=str(chroma_dir))
+        
+        try:
+            collection = chroma_client.get_collection(COLLECTION_NAME)
+            chunk_ids = [c["chunk_id"] for c in chunks]
+            # Batch-Abfragen bei sehr großen Listen verhindern Fehler
+            for i in range(0, len(chunk_ids), 100):
+                batch_ids = chunk_ids[i : i + 100]
+                existing = collection.get(ids=batch_ids)
+                existing_ids.update(existing.get("ids", []))
+            print(f"Bereits in ChromaDB vorhanden: {len(existing_ids)} Chunks")
+        except Exception:
+            # Collection existiert noch nicht
+            pass
+    except Exception as e:
+        print(f"Warnung beim Überprüfen existierender Chunks: {e}")
+
+    # Chunks filtern, die noch nicht in der Datenbank existieren
+    new_chunks = [c for c in chunks if c["chunk_id"] not in existing_ids]
+    print(f"Neue/Fehlende Chunks zum Hinzufügen: {len(new_chunks)}")
+
+    if not new_chunks:
+        print("\n✅ Alle Chunks bereits in ChromaDB vorhanden. Ingest übersprungen.")
+        return
+
+    # Embeddings laden oder berechnen
     embed_path = DATA_DIR / "embeddings.json"
-    if args.skip_embed and embed_path.exists():
-        with open(embed_path, encoding="utf-8") as f:
-            embeddings = json.load(f)
-        print(f"Embeddings geladen: {len(embeddings)} Vektoren")
-    else:
+    embeddings_cache = {}
+
+    if embed_path.exists():
+        try:
+            with open(embed_path, encoding="utf-8") as f:
+                embeddings_cache = json.load(f)
+            if isinstance(embeddings_cache, list):
+                print("Altes Listen-Format für Embeddings gefunden. Cache wird zurückgesetzt.")
+                embeddings_cache = {}
+            else:
+                print(f"Embeddings-Cache geladen: {len(embeddings_cache)} Vektoren")
+        except Exception as e:
+            print(f"Warnung beim Laden des Embeddings-Caches: {e}")
+
+    # Fehlende Embeddings sammeln
+    texts_to_embed = []
+    indices_to_embed = []
+    new_embeddings = [None] * len(new_chunks)
+
+    for idx, chunk in enumerate(new_chunks):
+        cid = chunk["chunk_id"]
+        if cid in embeddings_cache:
+            new_embeddings[idx] = embeddings_cache[cid]
+        elif args.skip_embed:
+            # Fallback wenn skip-embed gefordert aber kein Cache vorhanden
+            print(f"  [WARNUNG] --skip-embed aktiv, aber kein Cache für {cid}. Erstelle Dummy-Embedding.")
+            new_embeddings[idx] = [0.0] * 1536
+        else:
+            texts_to_embed.append(chunk["text"])
+            indices_to_embed.append(idx)
+
+    # API-Aufruf für neue Embeddings
+    if texts_to_embed:
         client = get_openai_client()
-        texts = [c["text"] for c in chunks]
-        print(f"Erstelle Embeddings für {len(texts)} Texte mit {EMBEDDING_MODEL} …")
-        embeddings = embed_texts(client, texts)
-        # Cachen für Wiederverwendung
-        with open(embed_path, "w") as f:
-            json.dump(embeddings, f)
-        print(f"Embeddings gecacht: {embed_path}")
+        print(f"Erstelle API-Embeddings für {len(texts_to_embed)} neue Texte mit {EMBEDDING_MODEL} …")
+        api_embeddings = embed_texts(client, texts_to_embed)
+        
+        # In Ergebnisse eintragen und Cache aktualisieren
+        for local_idx, api_emb in zip(indices_to_embed, api_embeddings):
+            new_embeddings[local_idx] = api_emb
+            cid = new_chunks[local_idx]["chunk_id"]
+            embeddings_cache[cid] = api_emb
 
-    # Einspeichern
-    if not args.only_qdrant:
-        print("\n--- ChromaDB ---")
-        ingest_chroma(chunks, embeddings)
+        # Cache speichern
+        try:
+            with open(embed_path, "w", encoding="utf-8") as f:
+                json.dump(embeddings_cache, f, ensure_ascii=False, indent=2)
+            print(f"Embeddings-Cache aktualisiert: {embed_path}")
+        except Exception as e:
+            print(f"Warnung beim Schreiben des Embeddings-Caches: {e}")
 
-    if not args.only_chroma:
-        print("\n--- Qdrant ---")
-        ingest_qdrant(chunks, embeddings)
+    # In ChromaDB einspeichern
+    print("\n--- ChromaDB ---")
+    ingest_chroma(new_chunks, new_embeddings)
 
     print("\n✅ Ingest abgeschlossen!")
 

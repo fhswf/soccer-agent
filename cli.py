@@ -81,17 +81,11 @@ def clean() -> None:
 
 @app.command()
 def ingest(
-    only_chroma: bool = typer.Option(False, "--only-chroma", help="Nur ChromaDB befüllen"),
-    only_qdrant: bool = typer.Option(False, "--only-qdrant", help="Nur Qdrant befüllen"),
     skip_embed: bool = typer.Option(False, "--skip-embed", help="Gespeicherte Embeddings nutzen"),
 ) -> None:
-    """🗄️  Chunks in Vektordatenbanken einspeichern (ChromaDB + Qdrant)."""
+    """🗄️ Chunks in ChromaDB einspeichern."""
     console.rule("[bold blue]Schritt 4: Vektordatenbank befüllen")
     args: list[str] = []
-    if only_chroma:
-        args.append("--only-chroma")
-    if only_qdrant:
-        args.append("--only-qdrant")
     if skip_embed:
         args.append("--skip-embed")
     _run_script("data-pipeline/ingest.py", extra_args=args)
