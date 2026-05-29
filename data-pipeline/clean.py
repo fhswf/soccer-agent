@@ -271,10 +271,13 @@ def build_chunks() -> list[dict]:
 
 
     # Chunk-IDs vergeben
+    import hashlib
     chunk_dicts = []
-    for i, chunk in enumerate(all_chunks):
+    for chunk in all_chunks:
         d = asdict(chunk)
-        d["chunk_id"] = f"wm2026_{i:04d}"
+        content_to_hash = f"{chunk.text}||{chunk.source}||{chunk.source_url}"
+        h = hashlib.sha256(content_to_hash.encode("utf-8")).hexdigest()
+        d["chunk_id"] = f"wm2026_{h}"
         chunk_dicts.append(d)
 
     # Speichern für Debug/Inspektion

@@ -19,6 +19,7 @@ import json
 import os
 import sys
 from pathlib import Path
+import yaml
 
 from rich.console import Console
 from rich.table import Table
@@ -49,10 +50,11 @@ FALLBACK_NEWS = [
 ]
 
 
-def scrape_fifa_news(max_results: int = 10) -> list[dict]:
+def scrape_fifa_news(max_results: int = 50) -> list[dict]:
     """
-    Sucht aktuelle Nachrichten und Ankündigungen auf fifa.com über DuckDuckGo.
-    Kombiniert deutsche und englische Suchen für bestmögliche Abdeckung.
+    Sucht aktuelle Nachrichten und Ankündigungen auf fifa.com und bekannten deutschen
+    Fußballportalen über DuckDuckGo.
+    Kombiniert offizielle FIFA-Meldungen und deutsche Fußball-News.
     """
     try:
         from ddgs import DDGS
@@ -63,9 +65,9 @@ def scrape_fifa_news(max_results: int = 10) -> list[dict]:
 
     news_items = {}
 
-    # 1. Deutsche Suche (nutzt backend="lite", da auto blockiert wird)
+    # 1. Deutsche FIFA-Suche (nutzt backend="lite")
     de_query = 'FIFA WM 2026 Spielplan'
-    console.print(f"Suche auf Deutsch: [cyan]{de_query}[/cyan]")
+    console.print(f"Suche offizielle FIFA-News auf Deutsch: [cyan]{de_query}[/cyan]")
     try:
         with DDGS() as ddgs:
             raw_de = list(ddgs.text(de_query, max_results=max_results, region="de-de", backend="lite"))
@@ -81,9 +83,54 @@ def scrape_fifa_news(max_results: int = 10) -> list[dict]:
     except Exception as e:
         console.print(f"[yellow]Warnung: Deutsche Websuche fehlgeschlagen: {e}[/yellow]")
 
-    # 2. Englische Suche
+    # 2. Deutsche Fußball-News (geladen aus soccer_domains.yaml)
+    yaml_path = DATA_DIR / "soccer_domains.yaml"
+    soccer_domains = {}
+    if yaml_path.exists():
+        try:
+            with open(yaml_path, encoding="utf-8") as f:
+                config = yaml.safe_load(f) or {}
+                soccer_domains = config.get("soccer_domains", {})
+        except Exception as e:
+            console.print(f"[yellow]Warnung: soccer_domains.yaml konnte nicht geladen werden: {e}[/yellow]")
+    
+    if not soccer_domains:
+        # Fallback falls Laden fehlschlägt
+        soccer_domains = {
+            "kicker.de": "Kicker (DE)",
+            "transfermarkt.de": "Transfermarkt (DE)",
+            "spox.com": "Spox (DE)",
+            "sport1.de": "Sport1 (DE)",
+            "weltfussball.de": "Weltfussball (DE)",
+        }
+    
+    site_conditions = " OR ".join(f"site:{domain}" for domain in soccer_domains.keys())
+    soccer_query = f"WM 2026 ({site_conditions})"
+    console.print(f"Suche deutsche Fußballportale: [cyan]{soccer_query}[/cyan]")
+    try:
+        with DDGS() as ddgs:
+            raw_soccer = list(ddgs.text(soccer_query, max_results=max_results, region="de-de", backend="lite"))
+            for r in raw_soccer:
+                url = r.get("href", "")
+                if url:
+                    matched_domain = None
+                    for domain in soccer_domains:
+                        if domain in url:
+                            matched_domain = domain
+                            break
+                    if matched_domain:
+                        news_items[url] = {
+                            "title": r.get("title", "").strip(),
+                            "url": url,
+                            "snippet": r.get("body", "").strip(),
+                            "source": soccer_domains[matched_domain],
+                        }
+    except Exception as e:
+        console.print(f"[yellow]Warnung: Suche deutsche Fußballportale fehlgeschlagen: {e}[/yellow]")
+
+    # 3. Englische FIFA-Suche
     en_query = 'World Cup 2026'
-    console.print(f"Suche auf Englisch: [cyan]{en_query}[/cyan]")
+    console.print(f"Suche offizielle FIFA-News auf Englisch: [cyan]{en_query}[/cyan]")
     try:
         with DDGS() as ddgs:
             raw_en = list(ddgs.text(en_query, max_results=max_results, region="en-us", backend="lite"))
@@ -112,7 +159,11 @@ def scrape_fifa_news(max_results: int = 10) -> list[dict]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Offizielle FIFA-WM-2026 News und Ankündigungen scrapen")
-    parser.add_argument("--max-results", type=int, default=10, help="Maximale Anzahl der Ergebnisse")
+    try:
+        default_max = int(os.environ.get("SCRAPE_MAX_RESULTS", "50"))
+    except ValueError:
+        default_max = 50
+    parser.add_argument("--max-results", type=int, default=default_max, help="Maximale Anzahl der Ergebnisse")
     args = parser.parse_args()
 
     console.rule("[bold blue]FIFA World Cup 2026 News Scraper")
@@ -145,3 +196,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+# Trigger release-please to update kustomization.yaml
+

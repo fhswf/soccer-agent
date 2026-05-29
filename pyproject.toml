@@ -12,7 +12,6 @@ dependencies = [
     "openai>=1.30.0",
     # Vektordatenbanken
     "chromadb>=0.5.0",
-    "qdrant-client>=1.9.0",
     # Datenpipeline
     "pyyaml>=6.0",
     "python-dotenv>=1.0.0",

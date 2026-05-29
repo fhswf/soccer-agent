@@ -59,11 +59,11 @@ def fetch(
 
 @app.command()
 def scrape(
-    max_results: int = typer.Option(10, "--max-results", "-n", help="Maximale Anzahl an News"),
+    max_results: int = typer.Option(50, "--max-results", "-n", help="Maximale Anzahl an News"),
 ) -> None:
     """🌐 Offizielle WM-2026-Nachrichten von FIFA.com scrapen."""
     if not isinstance(max_results, int):
-        max_results = 10
+        max_results = 50
     console.rule("[bold blue]Schritt 2: Offizielle FIFA-News scrapen")
     with console.status("Scrape offizielle Ankündigungen von FIFA.com …"):
         _run_script("data-pipeline/scrape_news.py", extra_args=["--max-results", str(max_results)])
@@ -81,17 +81,11 @@ def clean() -> None:
 
 @app.command()
 def ingest(
-    only_chroma: bool = typer.Option(False, "--only-chroma", help="Nur ChromaDB befüllen"),
-    only_qdrant: bool = typer.Option(False, "--only-qdrant", help="Nur Qdrant befüllen"),
     skip_embed: bool = typer.Option(False, "--skip-embed", help="Gespeicherte Embeddings nutzen"),
 ) -> None:
-    """🗄️  Chunks in Vektordatenbanken einspeichern (ChromaDB + Qdrant)."""
+    """🗄️ Chunks in ChromaDB einspeichern."""
     console.rule("[bold blue]Schritt 4: Vektordatenbank befüllen")
     args: list[str] = []
-    if only_chroma:
-        args.append("--only-chroma")
-    if only_qdrant:
-        args.append("--only-qdrant")
     if skip_embed:
         args.append("--skip-embed")
     _run_script("data-pipeline/ingest.py", extra_args=args)
@@ -106,7 +100,7 @@ def pipeline(
     console.rule("[bold yellow]Komplette Datenpipeline starten")
     fetch(no_cache=no_cache)
     try:
-        scrape(max_results=10)
+        scrape(max_results=50)
     except Exception as e:
         rprint(f"[bold red]⚠️  Scraping fehlgeschlagen, fahre mit restlicher Pipeline fort: {e}[/bold red]")
     clean()
