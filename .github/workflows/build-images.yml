@@ -19,6 +19,15 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' || !contains(github.event.head_commit.message, 'release-please')
+    strategy:
+      matrix:
+        include:
+          - image: ghcr.io/fhswf/soccer-agent/mcp-server
+            file: mcp-server/Dockerfile
+            name: mcp-server
+          - image: ghcr.io/fhswf/soccer-agent/data-pipeline
+            file: data-pipeline/Dockerfile
+            name: data-pipeline
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -34,49 +43,25 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata (tags, labels) for MCP Server
+      - name: Extract metadata (tags, labels)
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: |
-            ghcr.io/fhswf/soccer-agent/mcp-server
+          images: ${{ matrix.image }}
           tags: |
             type=ref,event=branch
             type=ref,event=pr
             type=sha,format=short
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
 
-      - name: Build and push MCP Server Docker Image
+      - name: Build and push Docker Image
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: mcp-server/Dockerfile
+          file: ${{ matrix.file }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-
-      - name: Extract metadata (tags, labels) for Data Pipeline
-        id: meta-pipeline
-        uses: docker/metadata-action@v5
-        with:
-          images: |
-            ghcr.io/fhswf/soccer-agent/data-pipeline
-          tags: |
-            type=ref,event=branch
-            type=ref,event=pr
-            type=sha,format=short
-            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
-
-      - name: Build and push Data Pipeline Docker Image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: data-pipeline/Dockerfile
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta-pipeline.outputs.tags }}
-          labels: ${{ steps.meta-pipeline.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: type=gha,scope=${{ matrix.name }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.name }}
 
