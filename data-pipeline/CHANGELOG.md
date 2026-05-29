@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/fhswf/soccer-agent/compare/data-pipeline-v1.0.1...data-pipeline-v1.1.0) (2026-05-29)
+
+
+### Features
+
+* expand news scraper to support configurable soccer domains and update CLI/K8s defaults ([1dc60fc](https://github.com/fhswf/soccer-agent/commit/1dc60fc9e10ce0ae55948a23777c41b0bb542149))
+* implement incremental ChromaDB ingestion with persistent chunk-based embedding caching and remove Qdrant support. ([3402bfb](https://github.com/fhswf/soccer-agent/commit/3402bfbaf701b02e68189a8a966161cf4efaf826))
+
 ## [1.0.1](https://github.com/fhswf/soccer-agent/compare/data-pipeline-v1.0.0...data-pipeline-v1.0.1) (2026-05-28)
 
 

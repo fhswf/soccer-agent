@@ -12,4 +12,4 @@ images:
   - name: ghcr.io/fhswf/soccer-agent/mcp-server
     newTag: 0.8.1
   - name: ghcr.io/fhswf/soccer-agent/data-pipeline
-    newTag: 1.0.1
+    newTag: 1.1.0
