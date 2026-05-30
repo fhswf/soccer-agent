@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: create-course-users
-  namespace: keycloak
+  namespace: soccer-agent
   annotations:
     # ArgoCD Hook: Läuft bei jedem Sync, bevor oder während die App synchronisiert wird
     argocd.argoproj.io/hook: Sync
@@ -20,7 +20,7 @@ spec:
             echo "Verbinde mit Keycloak..."
             # 1. Authentifizierung am Keycloak-Server
             /opt/keycloak/bin/kcadm.sh config credentials \
-              --server http://keycloak.ki.fh-swf.de
+              --server https//keycloak.ki.fh-swf.de \
               --realm master \
               --user $ADMIN_USER \
               --password $ADMIN_PASSWORD
