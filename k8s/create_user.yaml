@@ -1,0 +1,73 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: create-course-users
+  namespace: keycloak
+  annotations:
+    # ArgoCD Hook: Läuft bei jedem Sync, bevor oder während die App synchronisiert wird
+    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: keycloak-cli
+        image: quay.io/keycloak/keycloak:26.1 # Nutzen Sie Ihre Keycloak-Version
+        command: ["/bin/bash", "-c"]
+        args:
+          - |
+            echo "Verbinde mit Keycloak..."
+            # 1. Authentifizierung am Keycloak-Server
+            /opt/keycloak/bin/kcadm.sh config credentials \
+              --server http://keycloak \
+              --realm master \
+              --user $ADMIN_USER \
+              --password $ADMIN_PASSWORD
+
+            # 2. Schleife zum Erstellen der Kurs-Nutzer im Realm "cluster"
+            for i in {1..20}; do
+              USERNAME="mgi_$i"
+              
+              # Prüfen, ob der Nutzer bereits existiert (gibt die ID zurück, falls vorhanden)
+              USER_EXISTS=$(/opt/keycloak/bin/kcadm.sh get users -r "cluster" -q username=$USERNAME --fields id --format csv)
+              
+              if [ -z "$USER_EXISTS" ]; then
+                echo "Erstelle Nutzer: $USERNAME..."
+                
+                # Nutzer anlegen
+                /opt/keycloak/bin/kcadm.sh create users \
+                  -r "cluster" \
+                  -s username=$USERNAME \
+                  -s enabled=true \
+                  -s attributes.affiliation="member@fh-swf.de" \
+                  -s attributes.event_user="true"
+                
+                # Passwort setzen
+                /opt/keycloak/bin/kcadm.sh set-password \
+                  -r "cluster" \
+                  --username $USERNAME \
+                  --new-password $COURSE_PASSWORD \
+                  --temporary=false
+              else
+                echo "Nutzer $USERNAME existiert bereits. Überspringe..."
+              fi
+            done
+        env:
+        # Keycloak Admin Credentials (sollten idealerweise auch aus einem Secret kommen)
+        - name: ADMIN_USER
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-secret
+              key: KEYCLOAK_ADMIN
+        - name: ADMIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-secret
+              key: KEYCLOAK_ADMIN_PASSWORD
+        # Das über SealedSecrets bereitgestellte Kurs-Passwort
+        - name: COURSE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: course-user-passwords
+              key: default-password
