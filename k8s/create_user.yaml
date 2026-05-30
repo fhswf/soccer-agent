@@ -20,7 +20,7 @@ spec:
             echo "Verbinde mit Keycloak..."
             # 1. Authentifizierung am Keycloak-Server
             /opt/keycloak/bin/kcadm.sh config credentials \
-              --server https//keycloak.ki.fh-swf.de \
+              --server https:/keycloak.ki.fh-swf.de \
               --realm master \
               --user $ADMIN_USER \
               --password $ADMIN_PASSWORD
