@@ -54,20 +54,20 @@ spec:
               fi
             done
         env:
-        # Keycloak Admin Credentials (sollten idealerweise auch aus einem Secret kommen)
+        # Keycloak Admin Credentials
         - name: ADMIN_USER
           valueFrom:
             secretKeyRef:
-              name: keycloak-secret
+              name: create-user-secret
               key: KEYCLOAK_ADMIN
         - name: ADMIN_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: keycloak-secret
+              name: create-user-secret
               key: KEYCLOAK_ADMIN_PASSWORD
         # Das über SealedSecrets bereitgestellte Kurs-Passwort
         - name: COURSE_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: course-user-passwords
-              key: default-password
+              name: create-user-secret
+              key: COURSE_PASSWORD
